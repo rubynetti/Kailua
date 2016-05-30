@@ -1,2 +1,0 @@
-class Soci < ApplicationRecord
-end
