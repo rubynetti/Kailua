@@ -61,6 +61,8 @@ class SociosController < ApplicationController
                                     :complete,
                                     :birthdate,
                                     :tel,
-                                    :registration_date)
+                                    :registration_date,
+                                    :residence_place,
+                                    :birth_place)
     end
 end
