@@ -46,5 +46,7 @@ bind 'unix:///var/tmp/associazione_gestionale-puma.sock'
 #   ActiveRecord::Base.establish_connection if defined?(ActiveRecord)
 # end
 
+port 3000
+
 # Allow puma to be restarted by `rails restart` command.
 plugin :tmp_restart
