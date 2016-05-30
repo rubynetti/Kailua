@@ -3,7 +3,7 @@ class SociosController < ApplicationController
 
   # GET /socios
   def index
-    @socios = Socio.all
+    @socios = Socio.all.order(:number)
   end
 
   # GET /socios/1
@@ -24,7 +24,7 @@ class SociosController < ApplicationController
     @socio = Socio.new(socio_params)
 
     if @socio.save
-      redirect_to @socio, notice: 'Socio was successfully created.'
+      redirect_to socios_path, notice: 'Socio was successfully created.'
     else
       render :new
     end
