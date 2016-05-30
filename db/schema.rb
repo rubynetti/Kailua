@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160530101236) do
+ActiveRecord::Schema.define(version: 20160530105950) do
 
   create_table "socios", force: :cascade do |t|
     t.string   "name"
@@ -20,19 +20,11 @@ ActiveRecord::Schema.define(version: 20160530101236) do
     t.string   "cf"
     t.integer  "number"
     t.boolean  "complete"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "socis", force: :cascade do |t|
-    t.text     "nome"
-    t.text     "cognome"
-    t.text     "contatto"
-    t.text     "cf"
-    t.text     "numero_tessera"
-    t.boolean  "da_rinnovare"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.date     "birthdate"
+    t.string   "tel"
+    t.date     "registration_date"
   end
 
 end

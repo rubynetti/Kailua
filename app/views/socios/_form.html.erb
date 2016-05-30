@@ -11,37 +11,39 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :name %>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, class: 'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :surname %>
-    <%= f.text_field :surname %>
+    <%= f.text_field :surname, class: 'form-control' %>
   </div>
 
-  <div class="field">
-    <%= f.label :contact %>
-    <%= f.text_field :contact %>
+  <div class="form-group">
+    <%= f.label :contact, 'Mail' %>
+    <%= f.text_field :contact, class: 'form-control' %>
   </div>
 
-  <div class="field">
-    <%= f.label :cf %>
-    <%= f.text_field :cf %>
+  <div class="form-group">
+    <%= f.label :cf, 'Codice Fiscale' %>
+    <%= f.text_field :cf, class: 'form-control' %>
   </div>
 
-  <div class="field">
-    <%= f.label :number %>
-    <%= f.number_field :number %>
+  <div class="form-group">
+    <%= f.label :number, 'Numero Card' %>
+    <%= f.number_field :number, class: 'form-control' %>
+  </div>
+  
+  <div class="checkbox">
+    <label> <%= f.check_box :complete%> Registrazione completa  </label>
   </div>
 
-  <div class="field">
-    <%= f.label :complete %>
-    <%= f.check_box :complete %>
+  <div class="form-group">
+    <%= f.label :registration_date, 'Data di registrazione' %>
+    <%= f.date_field :registration_date, value: Date.parse('24/5/16'), class: 'form-control'  %>
   </div>
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+    <%= f.submit 'Crea', class: 'btn btn-default' %>
 <% end %>

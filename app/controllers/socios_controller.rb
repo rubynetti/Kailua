@@ -53,6 +53,14 @@ class SociosController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def socio_params
-      params.require(:socio).permit(:name, :surname, :contact, :cf, :number, :complete)
+      params.require(:socio).permit(:name, 
+                                    :surname, 
+                                    :contact, 
+                                    :cf, 
+                                    :number, 
+                                    :complete,
+                                    :birthdate,
+                                    :tel,
+                                    :registration_date)
     end
 end
