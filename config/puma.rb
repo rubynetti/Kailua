@@ -7,13 +7,16 @@
 threads_count = ENV.fetch("RAILS_MAX_THREADS") { 5 }.to_i
 threads threads_count, threads_count
 
-# Specifies the `port` that Puma will listen on to receive requests, default is 3000.
-#
-port        ENV.fetch("PORT") { 3000 }
+# Permette di salvare l'identificativo del processo in un posto preciso.
+pidfile './tmp/pids/puma.pid'
 
-# Specifies the `environment` that Puma will run in.
-#
-environment ENV.fetch("RAILS_ENV") { "development" }
+# Identifica il processo
+tag 'associazione_gestionale'
+
+stdout_redirect 'log/puma.log', 'log/puma_error.log', true
+
+bind 'unix:///var/tmp/segni-puma.sock'
+
 
 # Specifies the number of `workers` to boot in clustered mode.
 # Workers are forked webserver processes. If using threads and workers together
