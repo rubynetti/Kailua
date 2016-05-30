@@ -38,12 +38,17 @@
     <%= f.text_field :birth_place, class: 'form-control' %>
   </div>
 
+
     <div class="form-group">
     <%= f.label :birthdate, 'Data di nascita' %>
     <%= f.date_field :birthdate, class: 'form-control' %>
   </div>
 
-  
+
+    <div class="form-group">
+    <%= f.label :cf, 'Codice Fiscale' %>
+    <%= f.text_field :cf, class: 'form-control' %>
+  </div>
   <div class="form-group">
     <%= f.label :residence_place, 'Luogo di residenza' %>
     <%= f.text_field :residence_place, class: 'form-control' %>
@@ -56,10 +61,7 @@
     <%= f.text_field :contact, class: 'form-control' %>
   </div>
 
-  <div class="form-group">
-    <%= f.label :cf, 'Codice Fiscale' %>
-    <%= f.text_field :cf, class: 'form-control' %>
-  </div>
+
   
   <div class="form-group">
     <%= f.label :tel, 'Telefono' %>
