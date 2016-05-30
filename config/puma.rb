@@ -15,7 +15,7 @@ tag 'associazione_gestionale'
 
 stdout_redirect 'log/puma.log', 'log/puma_error.log', true
 
-bind 'unix:///var/tmp/segni-puma.sock'
+bind 'unix:///var/tmp/associazione_gestionale-puma.sock'
 
 
 # Specifies the number of `workers` to boot in clustered mode.
