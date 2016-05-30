@@ -75,6 +75,9 @@
     <label> <%= f.check_box :complete%> Registrazione completa  </label>
   </div>
 
-
-    <%= f.submit 'Crea', class: 'btn btn-default' %>
+  <%
+  label = "Crea"
+  label = "Aggiorna" if action_name == 'edit'
+  %>
+    <%= f.submit label, class: 'btn btn-primary btn-block' %>
 <% end %>
