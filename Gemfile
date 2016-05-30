@@ -22,3 +22,4 @@ group :development do
 end
 
 gem 'bootstrap-sass'
+gem 'rails-i18n'

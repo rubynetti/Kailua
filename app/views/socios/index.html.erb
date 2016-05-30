@@ -12,6 +12,7 @@
       <th>Numero</th>
       <th>Registrazione completa</th>
       <th>Data di registrazione</th>
+      <th>Data di nascita</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -25,7 +26,8 @@
         <td><%= socio.cf %></td>
         <td><%= socio.number %></td>
         <td><%= socio.complete %></td>
-        <td><%= socio.registration_date %></td>
+        <td><%= l socio.registration_date if socio.registration_date.present?%></td>
+        <td><%= l socio.birthdate if socio.birthdate.present? %></td>
         <td><%= link_to 'Modifica', edit_socio_path(socio) %></td>
         <td><%= link_to 'Cancella', socio, method: :delete, data: { confirm: 'Sei sicuro?' } %></td>
       </tr>
