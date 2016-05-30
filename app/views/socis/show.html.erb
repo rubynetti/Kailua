@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nome:</strong>
+  <%= @soci.nome %>
+</p>
+
+<p>
+  <strong>Cognome:</strong>
+  <%= @soci.cognome %>
+</p>
+
+<p>
+  <strong>Contatto:</strong>
+  <%= @soci.contatto %>
+</p>
+
+<p>
+  <strong>Cf:</strong>
+  <%= @soci.cf %>
+</p>
+
+<p>
+  <strong>Numero tessera:</strong>
+  <%= @soci.numero_tessera %>
+</p>
+
+<p>
+  <strong>Da rinnovare:</strong>
+  <%= @soci.da_rinnovare %>
+</p>
+
+<%= link_to 'Edit', edit_soci_path(@soci) %> |
+<%= link_to 'Back', socis_path %>
