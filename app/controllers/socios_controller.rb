@@ -24,7 +24,7 @@ class SociosController < ApplicationController
     @socio = Socio.new(socio_params)
 
     if @socio.save
-      redirect_to socios_path, notice: 'Socio was successfully created.'
+      redirect_to socios_path, notice: 'Socio aggiunto.'
     else
       render :new
     end
@@ -33,7 +33,7 @@ class SociosController < ApplicationController
   # PATCH/PUT /socios/1
   def update
     if @socio.update(socio_params)
-      redirect_to @socio, notice: 'Socio was successfully updated.'
+      redirect_to @socio, notice: 'Socio aggiornato.'
     else
       render :edit
     end
@@ -42,7 +42,7 @@ class SociosController < ApplicationController
   # DELETE /socios/1
   def destroy
     @socio.destroy
-    redirect_to socios_url, notice: 'Socio was successfully destroyed.'
+    redirect_to socios_url, notice: 'Socio cancellato.'
   end
 
   private

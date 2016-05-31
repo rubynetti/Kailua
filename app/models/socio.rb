@@ -1,3 +1,3 @@
 class Socio < ApplicationRecord
-  validates :number, uniqueness: true, presence: true
+  validates :number, uniqueness: true, allow_blank: true
 end
