@@ -1,7 +1,9 @@
 <p id="notice"><%= notice %></p>
-
-
-<table class="table table-responsive table-striped">
+<% content_for(:menu) do %>
+<%= link_to 'Aggiungi Socio', new_socio_path %>
+<% end %>
+<div class=" table-responsive">
+<table class="table table-striped table-condensed">
   <thead>
     <tr>
       <th>Nome</th>
@@ -9,12 +11,12 @@
       <th>Mail</th>
       <th>Codice Fiscale</th>
       <th>Numero</th>
-      <th>Registrazione completa</th>
+      <th>Reg completa</th>
       <th>Data di registrazione</th>
       <th>Data di nascita</th>
       <th>Luogo di nascita</th>
       <th>Residenza</th>
-      <th colspan="3"></th>
+      <th></th>
     </tr>
   </thead>
 
@@ -24,7 +26,7 @@
         <td><%= socio.name %></td>
         <td><%= socio.surname %></td>
         <td><%= socio.contact %></td>
-        <td><%= socio.cf %></td>
+        <td><small><%= socio.cf %></small></td>
         <td><%= socio.number %></td>
         <td><%= socio.complete %></td>
         <td><%= l socio.registration_date if socio.registration_date.present?%></td>
@@ -32,14 +34,14 @@
         <td><%= socio.residence_place %></td>
         <td><%= socio.birth_place %></td>
 
-        <td><%= link_to 'Modifica', edit_socio_path(socio) %></td>
-
-        <td><%= link_to 'Cancella', socio, method: :delete, data: { confirm: 'Sei sicuro?' } %></td>
+        <td>
+        <%= link_to 'Modifica', edit_socio_path(socio) %>
+        <%= link_to 'Cancella', socio, method: :delete, data: { confirm: 'Sei sicuro?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
+</div><!--.table-responsive-->
 <br>
 
 <%= link_to 'Aggiungi Socio', new_socio_path %>
