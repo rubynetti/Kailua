@@ -22,7 +22,8 @@
 
   <tbody>
     <% @socios.each do |socio| %>
-      <tr>
+      <% classe = "success" if socio.completo? %>
+      <tr class="<%=classe %>">
         <td><%= socio.name %></td>
         <td><%= socio.surname %></td>
         <td><%= socio.contact %></td>
