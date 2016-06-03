@@ -4,6 +4,7 @@ class SociosController < ApplicationController
   # GET /socios
   def index
     @socios = Socio.all.order(:number)
+    @socios = Socio.all.order("#{params[:sort]} #{params[:direction]}") if params[:sort].present?
   end
 
   # GET /socios/1
