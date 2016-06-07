@@ -43,7 +43,7 @@ class Socio < ApplicationRecord
   end
 
   def self.primo_numero_libero
-    index = 26
+    index = 500
     while Socio.exists?(number: index) do
       index +=1
     end
