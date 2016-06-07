@@ -3,48 +3,42 @@
 <% end %>
 
 <p id="notice"><%= notice %></p>
-<strong><%= Socio.all.size %> </strong> soci archiviati
+
+<div class="input-group"> <span class="input-group-addon">Cerca</span>
+  <input id="filter" type="text" class="form-control" placeholder="Scrivi qui...">
+</div>
+
+<br/>
 <div class=" table-responsive">
-<table class="table table-striped table-condensed">
+<table class="table table-condensed table-hover ">
   <thead>
     <tr>
       <th><%= sortable 'number', 'N°'%></th>
-      <th><%= sortable 'name', 'Nome'%></th>
-      <th><%= sortable 'surname', 'Cognome'%></th>
+      <th></th>
+      <th>Nome e Cognome</th>
       <th><%= sortable 'contact', 'Mail'%></th>
-      <th><%= sortable 'tel', 'Tel'%></th>
-      <th><%= sortable 'cf', 'Codice Fiscale'%></th>
-      <th><%= sortable 'complete', 'Registrati con modulo'%></th>
       <th><%= sortable 'registration_date', 'Data di registrazione'%></th>
-      <th><%= sortable 'birthdate', 'Data di nascita'%></th>
-      <th><%= sortable 'birth_place', 'Luogo di nascita' %></th>
-      <th><%= sortable 'residence_place', 'Residenza' %></th>
-      <th>
-      <%= sortable 'created_at', 'Aggiunto' %>/
-      <%= sortable 'updated_at', 'Aggiornato' %></th>
+      <th>Azioni</th>
       <th></th>
     </tr>
   </thead>
 
-  <tbody>
+  <tbody class="searchable">
     <% @socios.each do |socio| %>
+      <% classe = "danger" if socio.complete== false %>
+      <% classe = "warning" if socio.complete == true %>
       <% classe = "success" if socio.completo? %>
-      <tr class="<%=classe %>">
+      <tr class="<%=classe %>" class="searchable">
         <td><%= socio.number %></td>
-        <td><%= socio.name %></td>
-        <td><%= socio.surname %></td>
+        <td><%= raw socio.generic_status %></td>
+        <td><%= socio.name %> <%= socio.surname %></td>
         <td><%= truncate socio.contact %></td>
-        <td><%=  socio.tel %></td>
-        <td><small><%= truncate socio.cf, length:10 %></small></td>
-        <td><%= socio.complete %></td>
-        <td><%= l socio.registration_date if socio.registration_date.present?%></td>
-        <td><%= l socio.birthdate if socio.birthdate.present? %></td>
-        <td><%= socio.residence_place %></td>
-        <td><%= socio.birth_place %></td>
-        <td><small><%= l socio.created_at, format: "%d/%m %I:%M" %>
-         <%= l socio.updated_at, format: "%d/%m %I:%M" %></small></td>
 
-        <td>
+        <td><%= l socio.registration_date if socio.registration_date.present?%></td>
+        <td><%= raw socio.azioni %></td>
+
+
+        <td style="text-align:right">
         <%= link_to 'Modifica', edit_socio_path(socio) %>
         <%= link_to 'Cancella', socio, method: :delete, data: { confirm: 'Sei sicuro?' } %></td>
       </tr>

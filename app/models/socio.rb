@@ -6,4 +6,49 @@ class Socio < ApplicationRecord
     end
     return true
   end
+
+  def azioni
+    if registrato_con_modulo_cartaceo() == false
+      return 'Registrare con modulo cartaceo'
+    elsif completo? == true
+      return ''
+    else
+      return cose_mancanti
+    end
+  end
+
+  def cose_mancanti
+    stringa = "Dati assenti: <ul>"
+    stringa += "<li>numero di tessera" if number.blank?
+    stringa += "<li>codice fiscale" if cf.blank?
+    stringa += "<li>nome" if name.blank?
+    stringa += "<li>cognome" if surname.blank?
+    stringa += "<li>mail" if contact.blank?
+    stringa += "<li>data di nascita" if birthdate.blank?
+    stringa += "<li>luogo di nascita" if birth_place.blank?
+    stringa += "</ul>"
+    return stringa
+  end
+
+  def generic_status
+    if registrato_con_modulo_cartaceo() == false or completo? == false
+       return '<span class="glyphicon glyphicon-remove"></span>'
+    else
+      return '<span class="glyphicon glyphicon-ok"></span>'
+    end
+  end
+
+  def registrato_con_modulo_cartaceo
+    self.complete
+  end
+
+  def self.primo_numero_libero
+    index = 26
+    while Socio.exists?(number: index) do
+      index +=1
+    end
+
+    return index
+    
+  end
 end
