@@ -9,7 +9,7 @@ class Socio < ApplicationRecord
 
   def azioni
     if registrato_con_modulo_cartaceo() == false
-      return 'Registrare con modulo cartaceo'
+      return 'Da registrare con modulo cartaceo'
     elsif completo? == true
       return ''
     else
