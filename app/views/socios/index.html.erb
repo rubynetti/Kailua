@@ -1,5 +1,11 @@
 <% content_for(:menu) do %>
-  <%= link_to 'Aggiungi Socio', new_socio_path %>
+  <%= link_to 'Aggiungi Socio', new_socio_path %> |
+  
+  Download:
+  <%= link_to "CSV", socios_path(format: "csv") %> |
+  <%= link_to "Excel", socios_path(format: "xls") %>
+  <%= link_to "Pages", socios_path(format: "xls", pages: 'true') %>
+</p>
 <% end %>
 
 <p id="notice"><%= notice %></p>
@@ -47,5 +53,3 @@
 </table>
 </div><!--.table-responsive-->
 <br>
-
-<%= link_to 'Aggiungi Socio', new_socio_path %>
