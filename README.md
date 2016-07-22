@@ -7,4 +7,4 @@ Gestionale per associazioni culturali.
 - Elenco soci
 - Esportazione in csv ed excel (anche per pages)
 
-(http://awai.info)
+http://awai.info
