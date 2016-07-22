@@ -1,4 +1,4 @@
-# Gestionale per Associazioni Culturali
+# Associati
 
 - Sistema di registrazione soci
 - Controllo dati dei soci
