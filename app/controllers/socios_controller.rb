@@ -5,6 +5,18 @@ class SociosController < ApplicationController
   def index
     @socios = Socio.all.order(:number)
     @socios = Socio.all.order("#{params[:sort]} #{params[:direction]}") if params[:sort].present?
+
+    respond_to do |format|
+      format.html
+      format.csv { send_data @socios.to_csv, filename: 'soci.csv' }
+      format.xls do
+        if params[:pages]=="true"
+          send_data @socios.to_csv(col_sep: ";"), filename: 'soci.xls' 
+        else
+          send_data @socios.to_csv(col_sep: "\t"), filename: 'soci.xls' 
+        end
+      end
+    end
   end
 
   # GET /socios/1
