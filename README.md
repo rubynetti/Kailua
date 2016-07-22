@@ -1,24 +1,10 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Gestionale per associazioni culturali.
 
-Things you may want to cover:
+- Sistema di registrazione soci
+- Controllo dati dei soci
+- Elenco soci
+- Esportazione in csv ed excel (anche per pages)
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+(http://awai.info)
