@@ -1,6 +1,4 @@
-# README
-
-Gestionale per associazioni culturali.
+# Gestionale per Associazioni Culturali
 
 - Sistema di registrazione soci
 - Controllo dati dei soci
