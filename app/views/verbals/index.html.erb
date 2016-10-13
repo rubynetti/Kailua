@@ -22,7 +22,7 @@
         <td><%= verbal.title %></td>
         <td><%= truncate verbal.content %></td>
         <td><%= verbal.document_date %></td>
-        <td><%= verbal.updated_at.strftime '%Y-%m-%d %H:%M:%S' %></td>
+        <td><%= verbal.updated_at.strftime '%Y-%m-%d (%H:%M:%S)' %></td>
         <td style="text-align:center">
           <%= link_to 'Apri', verbal %>
           <%= link_to 'Modifica', edit_verbal_path(verbal) %>
