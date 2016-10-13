@@ -1,0 +1,32 @@
+<%= form_for(verbal) do |f| %>
+  <% if verbal.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(verbal.errors.count, "error") %> prohibited this verbal from being saved:</h2>
+
+      <ul>
+      <% verbal.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title, "Titolo" %>
+    <%= f.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= f.label :content, "Contenuto" %>
+    <%= f.text_area :content %>
+  </div>
+
+  <div class="field">
+    <%= f.label :document_date, "Data documento" %>
+    <%= f.date_select :document_date %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Salva" %>
+  </div>
+<% end %>

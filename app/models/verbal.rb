@@ -1,0 +1,2 @@
+class Verbal < ApplicationRecord
+end
