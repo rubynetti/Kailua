@@ -1,5 +1,8 @@
-<h1>Nuovo Verbale</h1>
-
+<% if !@verbal.errors.any? %>
+  <h2>Nuovo Verbale</h2>
+  <%=t :hello %>
+  <br>
+<% end %>
 <%= render 'form', verbal: @verbal %>
-
-<%= link_to 'Back', verbals_path %>
+<hr/>
+<%= link_to 'Elenco dei verbali', verbals_path %>

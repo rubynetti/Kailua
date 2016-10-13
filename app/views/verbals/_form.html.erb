@@ -1,32 +1,36 @@
 <%= form_for(verbal) do |f| %>
-  <% if verbal.errors.any? %>
+  <% if @verbal.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(verbal.errors.count, "error") %> prohibited this verbal from being saved:</h2>
-
+      <h2>
+        <%= pluralize(@verbal.errors.count, "errore ha", "errori hanno") %>
+         impedito di salvare questo verbale:
+      </h2>
       <ul>
-      <% verbal.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
+        <% @verbal.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :title, "Titolo" %>
-    <%= f.text_field :title %>
+    <%= f.text_field :title, class: 'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :content, "Contenuto" %>
-    <%= f.text_area :content %>
+    <%= f.text_area :content, class: 'form-control', style:"height:150px" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :document_date, "Data documento" %>
     <%= f.date_select :document_date %>
   </div>
 
-  <div class="actions">
-    <%= f.submit "Salva" %>
-  </div>
+  <%
+  label = "Crea"
+  label = "Aggiorna" if action_name == 'edit'
+  %>
+    <%= f.submit label, class: 'btn btn-primary btn-block' %>
 <% end %>

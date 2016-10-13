@@ -1,24 +1,33 @@
 <p id="notice"><%= notice %></p>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Content</th>
-      <th>Document date</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div class="input-group"> <span class="input-group-addon">Cerca</span>
+  <input id="filter" type="text" class="form-control" placeholder="Scrivi qui...">
+</div>
 
-  <tbody>
+<br/>
+<div class=" table-responsive">
+  <table class="table table-condensed table-hover ">
+    <thead>
+      <tr>
+        <th><%= sortable 'title', 'Titolo'%></th>
+        <th>Contenuto</th>
+        <th><%= sortable 'document_date', 'Data documento'%></th>
+        <th><%= sortable 'updated_at', 'Ultima modifica'%></th>
+      </tr>
+    </thead>
+
+  <tbody class="searchable">
     <% @verbals.each do |verbal| %>
       <tr>
         <td><%= verbal.title %></td>
         <td><%= truncate verbal.content %></td>
         <td><%= verbal.document_date %></td>
-        <td><%= link_to 'Show', verbal %></td>
-        <td><%= link_to 'Edit', edit_verbal_path(verbal) %></td>
-        <td><%= link_to 'Destroy', verbal, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= verbal.updated_at.strftime '%Y-%m-%d %H:%M:%S' %></td>
+        <td style="text-align:center">
+          <%= link_to 'Apri', verbal %>
+          <%= link_to 'Modifica', edit_verbal_path(verbal) %>
+          <%= link_to 'Elimina', verbal, method: :delete, data: { confirm: "Sei sicuro?\n:(" } %>
+        </td>
       </tr>
     <% end %>
   </tbody>
@@ -26,4 +35,4 @@
 
 <br>
 
-<%= link_to 'New Verbal', new_verbal_path %>
+<%= link_to 'Nuovo Verbale', new_verbal_path %>

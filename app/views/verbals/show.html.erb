@@ -7,7 +7,7 @@
 
 <p>
   <strong>Content:</strong>
-  <%= @verbal.content %>
+  <%= truncate @verbal.content %>
 </p>
 
 <p>
@@ -15,5 +15,5 @@
   <%= @verbal.document_date %>
 </p>
 
-<%= link_to 'Edit', edit_verbal_path(@verbal) %> |
-<%= link_to 'Back', verbals_path %>
+<%= link_to 'Modifica', edit_verbal_path(@verbal) %> |
+<%= link_to 'Elenco dei verbali', verbals_path %>
