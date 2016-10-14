@@ -14,6 +14,7 @@
       <tr>
         <th><%= sortable 'title', 'Titolo'%></th>
         <th>Contenuto</th>
+        <th>Autori<th>
         <th><%= sortable 'document_date', 'Data documento'%></th>
         <th><%= sortable 'updated_at', 'Ultima modifica'%></th>
       </tr>
@@ -24,6 +25,7 @@
       <tr>
         <td><%= verbal.title %></td>
         <td><%= truncate verbal.content %></td>
+        <td><%= verbal.authors %></td>
         <td><%= verbal.document_date %></td>
         <td><%= verbal.updated_at.strftime '%Y-%m-%d (%H:%M:%S)' %></td>
         <td style="text-align:center">

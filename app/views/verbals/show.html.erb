@@ -8,7 +8,8 @@
 <div class="panel panel-default">
   <div class="panel-heading">
     <h3 class="panel-title">
-    <strong><%= @verbal.title %></h3></strong>
+    <strong><%= @verbal.title.capitalize %></h3></strong>
+    <%= @verbal.authors.titleize %>
   </div>
   <div class="panel-body">
     <%= @verbal.content %>

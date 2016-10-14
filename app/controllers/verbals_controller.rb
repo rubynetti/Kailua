@@ -54,6 +54,6 @@ class VerbalsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def verbal_params
-      params.require(:verbal).permit(:title, :content, :document_date)
+      params.require(:verbal).permit(:title, :content, :document_date, :authors)
     end
 end
