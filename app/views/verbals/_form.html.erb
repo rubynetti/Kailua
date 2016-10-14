@@ -1,10 +1,10 @@
 <%= form_for(verbal) do |f| %>
   <% if @verbal.errors.any? %>
     <div id="error_explanation">
-      <h2>
+      <h4h3>
         <%= pluralize(@verbal.errors.count, "errore ha", "errori hanno") %>
          impedito di salvare questo verbale:
-      </h2>
+      </h3>
       <ul>
         <% @verbal.errors.full_messages.each do |msg| %>
           <li><%= msg %></li>
@@ -20,13 +20,17 @@
 
   <div class="form-group">
     <%= f.label :content, "Contenuto" %>
-    <%= f.text_area :content, class: 'form-control', style:"height:150px" %>
+    <%= f.text_area :content, class: 'form-control', style:"height:100px" %>
   </div>
 
   <div class="form-group">
-    <%= f.label :document_date, "Data documento" %>
-    <%= f.date_select :document_date %>
-  </div>
+    <%= f.label :authors, "Autori" %>
+    <%= f.text_field :authors, class: 'form-control' %>
+
+  </div>  <div class="form-group">
+      <%= f.label :document_date, "Data documento" %>
+      <%= f.date_select :document_date %>
+    </div>
 
   <%
   label = "Crea"

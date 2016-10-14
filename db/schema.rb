@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161013110552) do
+ActiveRecord::Schema.define(version: 20161014064522) do
 
   create_table "socios", force: :cascade do |t|
     t.string   "name"
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 20161013110552) do
     t.date     "document_date"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+    t.string   "authors"
   end
 
 end

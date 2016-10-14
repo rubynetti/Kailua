@@ -1,6 +1,13 @@
 // Place all the styles related to the verbals controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.panel-body  {
-   word-break:break-all
+
+/* universal */
+
+h3 {
+  margin-top: 0px
+}
+
+#notice {
+  color: green
 }
