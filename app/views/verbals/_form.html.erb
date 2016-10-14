@@ -1,7 +1,7 @@
 <%= form_for(verbal) do |f| %>
   <% if @verbal.errors.any? %>
     <div id="error_explanation">
-      <h4h3>
+      <h3 id="header_title">
         <%= pluralize(@verbal.errors.count, "errore ha", "errori hanno") %>
          impedito di salvare questo verbale:
       </h3>
