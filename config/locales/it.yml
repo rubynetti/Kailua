@@ -2,6 +2,6 @@ it:
   activerecord:
     attributes:
       verbal:
-        title: "Titolo"
-        content: "Contenuto"
-        authors: "Autori"
+        title: Titolo
+        content: Contenuto
+        authors: Autori
