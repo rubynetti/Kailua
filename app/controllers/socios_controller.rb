@@ -26,8 +26,11 @@ class SociosController < ApplicationController
   # GET /socios/new
   def new
     @socio = Socio.new
-    last_number = Socio.last&.number
-    @socio = last_number + 1 if last_number 
+    if Socio.last
+      last_number, last_date = Socio.last.number, Socio.last.registration_date
+      @socio.number = last_number + 1 if last_number
+    end
+    @socio.registration_date = last_date || Date.today
   end
 
   # GET /socios/1/edit
@@ -41,6 +44,7 @@ class SociosController < ApplicationController
     if @socio.save
       redirect_to socios_path, notice: 'Socio aggiunto.'
     else
+      logger.warn @socio.errors.inspect
       render :new
     end
   end

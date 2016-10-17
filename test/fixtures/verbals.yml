@@ -4,8 +4,10 @@ one:
   title: MyString
   content: MyText
   document_date: 2016-10-13
+  authors: Ciccio Ciccio
 
 two:
   title: MyString
   content: MyText
   document_date: 2016-10-13
+  authors: Ale Desc

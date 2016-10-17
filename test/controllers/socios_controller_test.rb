@@ -17,10 +17,11 @@ class SociosControllerTest < ActionDispatch::IntegrationTest
 
   test "should create socio" do
     assert_difference('Socio.count') do
-      post socios_url, params: { socio: { cf: @socio.cf, complete: @socio.complete, contact: @socio.contact, name: @socio.name, number: @socio.number, surname: @socio.surname } }
+      post socios_url, params: { socio: { cf: @socio.cf, complete:
+        @socio.complete, contact: @socio.contact, name: @socio.name, number: 7, surname: @socio.surname } }
     end
 
-    assert_redirected_to socio_path(Socio.last)
+    assert_redirected_to socios_path
   end
 
   test "should show socio" do
@@ -34,7 +35,8 @@ class SociosControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update socio" do
-    patch socio_url(@socio), params: { socio: { cf: @socio.cf, complete: @socio.complete, contact: @socio.contact, name: @socio.name, number: @socio.number, surname: @socio.surname } }
+    patch socio_url(@socio), params: { socio: { cf: @socio.cf, complete: @socio.complete,
+      contact: @socio.contact, name: @socio.name, number: @socio.number, surname: @socio.surname } }
     assert_redirected_to socio_path(@socio)
   end
 

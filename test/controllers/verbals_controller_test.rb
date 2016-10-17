@@ -17,7 +17,7 @@ class VerbalsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create verbal" do
     assert_difference('Verbal.count') do
-      post verbals_url, params: { verbal: { content: @verbal.content, document_date: @verbal.document_date, title: @verbal.title } }
+      post verbals_url, params: { verbal: { content: @verbal.content, document_date: @verbal.document_date, title: @verbal.title, authors: @verbal.authors} }
     end
 
     assert_redirected_to verbal_path(Verbal.last)
@@ -34,7 +34,7 @@ class VerbalsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update verbal" do
-    patch verbal_url(@verbal), params: { verbal: { content: @verbal.content, document_date: @verbal.document_date, title: @verbal.title } }
+    patch verbal_url(@verbal), params: { verbal: { content: @verbal.content, document_date: @verbal.document_date, title: @verbal.title, authors: "Cagno Papagno" } }
     assert_redirected_to verbal_path(@verbal)
   end
 

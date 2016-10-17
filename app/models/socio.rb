@@ -2,14 +2,17 @@ class Socio < ApplicationRecord
 
   validates :number, uniqueness: true, allow_blank: true
 
+  before_save :nice_format
+
   #Formattazione attributi Socio
-  before_save do
-    [self.name, self.surname,
-      self.birth_place, self.residence_place].each do |s|
-        s = s.downcase.titleize
+  def nice_format
+    [self.name].each do |s|
+        s = "CAZZO"
+        self.name = s
     end
     self.contact.downcase!
   end
+
 
   def completo?
     if number.blank? or cf.blank? or name.blank? or surname.blank? or contact.blank? or complete == false or birthdate.blank? or residence_place.blank?

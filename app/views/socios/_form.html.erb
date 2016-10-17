@@ -12,15 +12,13 @@
   <% end %>
 
   <div class="form-group">
-    <%= f.number_field :number, value: :number, class: 'form-control' %>
+    <%= f.number_field :number, class: 'form-control' %>
   </div>
 
 
   <div class="form-group">
-    <% last_date = @socio.registration_date ||
-                      last_socio(:registration_date) || Date.today %>
     <%= f.label :registration_date, 'Data di registrazione' %>
-    <%= f.date_field :registration_date, value: last_date, class: 'form-control' %>
+    <%= f.date_field :registration_date, class: 'form-control' %>
   </div>
 
   <div class="form-group">

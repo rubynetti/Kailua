@@ -13,7 +13,7 @@ pidfile './tmp/pids/puma.pid'
 # Identifica il processo
 tag 'associazione_gestionale'
 
-stdout_redirect 'log/puma.log', 'log/puma_error.log', true
+#stdout_redirect 'log/puma.log', 'log/puma_error.log', true
 
 bind 'unix:///var/tmp/associazione_gestionale-puma.sock'
 
