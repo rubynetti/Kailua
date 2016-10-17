@@ -6,10 +6,10 @@ class Socio < ApplicationRecord
 
   #Formattazione attributi Socio
   def nice_format
-    [self.name].each do |s|
-        s = "CAZZO"
-        self.name = s
-    end
+    self.name = name.downcase.titleize
+    self.surname = surname.downcase.titleize
+    self.birth_place = birth_place.downcase.titleize
+    self.residence_place = residence_place.downcase.titleize
     self.contact.downcase!
   end
 
