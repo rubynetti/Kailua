@@ -1,4 +1,5 @@
 it:
+  scrivi_qui: 'peova'
   activerecord:
     attributes:
       verbal:

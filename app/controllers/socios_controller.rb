@@ -11,9 +11,9 @@ class SociosController < ApplicationController
       format.csv { send_data @socios.to_csv, filename: 'soci.csv' }
       format.xls do
         if params[:pages]=="true"
-          send_data @socios.to_csv(col_sep: ";"), filename: 'soci.xls' 
+          send_data @socios.to_csv(col_sep: ";"), filename: 'soci.xls'
         else
-          send_data @socios.to_csv(col_sep: "\t"), filename: 'soci.xls' 
+          send_data @socios.to_csv(col_sep: "\t"), filename: 'soci.xls'
         end
       end
     end
@@ -26,6 +26,8 @@ class SociosController < ApplicationController
   # GET /socios/new
   def new
     @socio = Socio.new
+    last_number = Socio.last&.number
+    @socio = last_number + 1 if last_number 
   end
 
   # GET /socios/1/edit
@@ -66,11 +68,11 @@ class SociosController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def socio_params
-      params.require(:socio).permit(:name, 
-                                    :surname, 
-                                    :contact, 
-                                    :cf, 
-                                    :number, 
+      params.require(:socio).permit(:name,
+                                    :surname,
+                                    :contact,
+                                    :cf,
+                                    :number,
                                     :complete,
                                     :birthdate,
                                     :tel,

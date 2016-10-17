@@ -12,9 +12,7 @@
   <% end %>
 
   <div class="form-group">
-    <% num = @socio.number || last_socio(:number) + 1%>
-    <%= f.label :number, 'Numero Card' %>
-    <%= f.number_field :number, value: num, class: 'form-control' %>
+    <%= f.number_field :number, value: :number, class: 'form-control' %>
   </div>
 
 

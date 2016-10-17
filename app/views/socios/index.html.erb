@@ -1,6 +1,6 @@
 <% content_for(:menu) do %>
   <%= link_to 'Aggiungi Socio', new_socio_path %> |
-  
+
   Download:
   <%= link_to "CSV", socios_path(format: "csv") %> |
   <%= link_to "Excel", socios_path(format: "xls") %> |
@@ -11,7 +11,7 @@
 <p id="notice"><%= notice %></p>
 
 <div class="input-group"> <span class="input-group-addon">Cerca</span>
-  <input id="filter" type="text" class="form-control" placeholder="Scrivi qui...">
+  <input id="filter" type="text" class="form-control" placeholder="<%= t(:scrivi_qui) %>">
 </div>
 
 <br/>
