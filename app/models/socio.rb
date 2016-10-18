@@ -31,7 +31,6 @@ class Socio < ApplicationRecord
   def cose_mancanti
     stringa = "Dati assenti: <ul>"
     stringa += "<li>numero di tessera" if number.blank?
-    stringa += "<li>codice fiscale" if cf.blank?
     stringa += "<li>nome" if name.blank?
     stringa += "<li>cognome" if surname.blank?
     stringa += "<li>mail" if contact.blank?
