@@ -1,21 +1,18 @@
 class Socio < ApplicationRecord
+  include InputFormatter
 
   validates :number, uniqueness: true, allow_blank: true
 
   before_save :nice_format
-
   #Formattazione attributi Socio
   def nice_format
-    self.name = name.downcase.titleize
-    self.surname = surname.downcase.titleize
-    self.birth_place = birth_place.downcase.titleize
-    self.residence_place = residence_place.downcase.titleize
+    titleize_attributes :name, :surname, :birth_place, :residence_place
     self.contact.downcase!
   end
 
-
   def completo?
-    if number.blank? or cf.blank? or name.blank? or surname.blank? or contact.blank? or complete == false or birthdate.blank? or residence_place.blank?
+    if number.blank? or cf.blank? or name.blank? or surname.blank? or
+      contact.blank? or complete == false or birthdate.blank? or residence_place.blank?
       return false
     end
     return true
