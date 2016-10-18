@@ -1,32 +1,57 @@
 <p id="notice" style="margin-top: 10px"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
+  <strong><%= t :name %>:</strong>
   <%= @socio.name %>
 </p>
 
 <p>
-  <strong>Surname:</strong>
+  <strong><%= t :surname %>:</strong>
   <%= @socio.surname %>
 </p>
 
 <p>
-  <strong>Contact:</strong>
+  <strong><%= t :contact %>:</strong>
   <%= @socio.contact %>
 </p>
 
 <p>
-  <strong>Cf:</strong>
-  <%= @socio.cf %>
-</p>
-
-<p>
-  <strong>Number:</strong>
+  <strong><%= t :number %>:</strong>
   <%= @socio.number %>
 </p>
 
 <p>
-  <strong>Complete:</strong>
+  <strong><%= t :registration_date %>:</strong>
+  <%= @socio.registration_date %>
+</p>
+
+<p>
+  <strong><%= t :cf %>:</strong>
+  <%= @socio.cf %>
+</p>
+
+<p>
+  <strong><%= t :birthdate %>:</strong>
+  <%= @socio.birthdate %>
+</p>
+
+<p>
+  <strong><%= t :birth_place %>:</strong>
+  <%= @socio.birth_place %>
+</p>
+
+<p>
+  <strong><%= t :residence_place %>:</strong>
+  <%= @socio.residence_place %>
+</p>
+
+<p>
+  <strong><%= t :tel %>:</strong>
+  <%= @socio.tel %>
+</p>
+
+<p>
+  <strong><%= t :complete %>:</strong>
   <%= @socio.complete %>
 </p>
 
