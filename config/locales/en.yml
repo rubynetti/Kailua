@@ -4,3 +4,13 @@ en:
     "false": No
   placeholders:
     write_here: Write here...
+  menus:
+    socio:
+      edit: Edit Socio
+  activerecord:
+    attributes:
+      socio:
+        number: Card number
+        cf: CF
+        tel: Phone number
+        complete: Paperwork filed

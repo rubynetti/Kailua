@@ -4,6 +4,9 @@ it:
     "false": "No"
   placeholders:
     write_here: Scrivi qui...
+  menus:
+    socio:
+      edit: Modifica Socio
   activerecord:
     attributes:
       verbal:
@@ -11,13 +14,14 @@ it:
         content: Contenuto
         authors: Autori
       socio:
+        number: Tessera numero
         name: Nome
         surname: Cognome
         contact: Email
         registration_date: Data Iscrizione
         cf: Codice Fiscale
         birthdate: Data di nascita
-        birthplace: Luogo di nascita
+        birth_place: Luogo di nascita
         residence_place: Luogo di residenza
         tel: Telefono
         complete: Registrato con modulo cartaceo

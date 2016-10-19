@@ -6,4 +6,5 @@ class ApplicationController < ActionController::Base
     http_basic_authenticate_with name: ENV["associazione_name"],
                                password: ENV["associazione_password"]
   end
+  before_action {I18n.locale = :en}
 end
