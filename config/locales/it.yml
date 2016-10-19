@@ -4,10 +4,14 @@ it:
     "false": "No"
   placeholders:
     write_here: Scrivi qui...
-  menus:
-    socio:
-      edit: Modifica Socio
   activerecord:
+    models:
+      socio:
+        one: Socio
+        other: Soci
+      verbal:
+        one: Verbale
+        other: Verbali
     attributes:
       verbal:
         title: Titolo

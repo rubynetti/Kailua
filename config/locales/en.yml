@@ -1,16 +1,25 @@
 en:
+  actions:
+    new: New
   booleans:
     "true": Yes
     "false": No
   placeholders:
     write_here: Write here...
-  menus:
-    socio:
-      edit: Edit Socio
   activerecord:
+    models:
+      socio:
+        one: Member
+        other: Members
+      verbal:
+        one: Verbal
+        other: Verbals
     attributes:
       socio:
         number: Card number
         cf: CF
         tel: Phone number
         complete: Paperwork filed
+  helpers:
+    submit:
+      create: Add %{model}
