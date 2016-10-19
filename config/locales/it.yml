@@ -1,8 +1,23 @@
 it:
-  scrivi_qui: Scrivi qui...
+  booleans:
+    "true": "Sì"
+    "false": "No"
+  placeholders:
+    write_here: Scrivi qui...
   activerecord:
     attributes:
       verbal:
         title: Titolo
         content: Contenuto
         authors: Autori
+      socio:
+        name: Nome
+        surname: Cognome
+        contact: Email
+        registration_date: Data Iscrizione
+        cf: Codice Fiscale
+        birthdate: Data di nascita
+        birthplace: Luogo di nascita
+        residence_place: Luogo di residenza
+        tel: Telefono
+        complete: Registrato con modulo cartaceo

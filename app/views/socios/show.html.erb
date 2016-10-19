@@ -1,58 +1,58 @@
 <p id="notice" style="margin-top: 10px"><%= notice %></p>
 
 <p>
-  <strong><%= t :name %>:</strong>
+  <strong><%= Socio.human_attribute_name(:name) %>:</strong>
   <%= @socio.name %>
 </p>
 
 <p>
-  <strong><%= t :surname %>:</strong>
+  <strong><%= Socio.human_attribute_name(:surname) %>:</strong>
   <%= @socio.surname %>
 </p>
 
 <p>
-  <strong><%= t :contact %>:</strong>
-  <%= @socio.contact %>
+  <strong><%= Socio.human_attribute_name(:contact) %>:</strong>
+  <%= @socio.contact%>
 </p>
 
 <p>
-  <strong><%= t :number %>:</strong>
+  <strong><%= Socio.human_attribute_name(:number) %>:</strong>
   <%= @socio.number %>
 </p>
 
 <p>
-  <strong><%= t :registration_date %>:</strong>
+  <strong><%= Socio.human_attribute_name(:registration_date) %>:</strong>
   <%= @socio.registration_date %>
 </p>
 
 <p>
-  <strong><%= t :cf %>:</strong>
+  <strong><%= Socio.human_attribute_name(:cf) %>:</strong>
   <%= @socio.cf %>
 </p>
 
 <p>
-  <strong><%= t :birthdate %>:</strong>
+  <strong><%= Socio.human_attribute_name(:birthdate) %>:</strong>
   <%= @socio.birthdate %>
 </p>
 
 <p>
-  <strong><%= t :birth_place %>:</strong>
+  <strong><%= Socio.human_attribute_name(:birth_place) %>:</strong>
   <%= @socio.birth_place %>
 </p>
 
 <p>
-  <strong><%= t :residence_place %>:</strong>
+  <strong><%= Socio.human_attribute_name(:residence_place) %>:</strong>
   <%= @socio.residence_place %>
 </p>
 
 <p>
-  <strong><%= t :tel %>:</strong>
+  <strong><%= Socio.human_attribute_name(:tel) %>:</strong>
   <%= @socio.tel %>
 </p>
 
 <p>
-  <strong><%= t :complete %>:</strong>
-  <%= @socio.complete %>
+  <strong><%= Socio.human_attribute_name(:complete) %>:</strong>
+  <%= t "booleans.#{@socio.complete}" %>
 </p>
 
 <%= link_to 'Edit', edit_socio_path(@socio) %> |
