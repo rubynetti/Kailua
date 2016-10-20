@@ -1,8 +1,8 @@
 <%= form_for(socio) do |f| %>
   <% if socio.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(socio.errors.count, "error") %> prohibited this socio from being saved:</h2>
-
+      <h2><%= t "activerecord.errors.messages.template",
+                count: @socio.errors.count, model: 'socio'%>:</h2>
       <ul>
       <% socio.errors.full_messages.each do |message| %>
         <li><%= message %></li>

@@ -11,9 +11,10 @@
 
 <p id="notice"><%= notice %></p>
 
-<div class="input-group"> <span class="input-group-addon">Cerca</span>
+<div class="input-group">
+<span class="input-group-addon"><%= t 'search_form.button' %></span>
   <input id="filter" type="text" class="form-control"
-                            placeholder="<%= t 'placeholders.write_here' %>">
+                            placeholder="<%= t 'search_form.placeholder' %>">
 </div>
 
 <br/>
@@ -21,12 +22,13 @@
 <table class="table table-condensed table-hover ">
   <thead>
     <tr>
-      <th><%= sortable 'number', 'N°'%></th>
+      <th><%= sortable 'number', Socio.human_attribute_name(:number)%></th>
       <th></th>
-      <th>Nome e Cognome</th>
-      <th><%= sortable 'contact', 'Mail'%></th>
-      <th><%= sortable 'registration_date', 'Data di registrazione'%></th>
-      <th>Azioni</th>
+      <th><%= t 'socios.full_name' %></th>
+      <th><%= sortable 'contact', 'E-Mail'%></th>
+      <th><%= sortable 'registration_date',
+                        Socio.human_attribute_name(:registration_date)%></th>
+      <th><%= t 'socios.missing_fields' %></th>
       <th></th>
     </tr>
   </thead>
@@ -43,12 +45,12 @@
         <td><%= truncate socio.contact %></td>
 
         <td><%= l socio.registration_date if socio.registration_date.present?%></td>
-        <td><%= raw socio.azioni %></td>
+        <td><%= raw socio.actions %></td>
 
 
         <td style="text-align:right">
-        <%= link_to 'Modifica', edit_socio_path(socio) %>
-        <%= link_to 'Cancella', socio, method: :delete, data: { confirm: 'Sei sicuro?' } %></td>
+        <%= link_to t('actions.edit'), edit_socio_path(socio) %>
+        <%= link_to t('actions.delete'), socio, method: :delete, data: { confirm: 'Sei sicuro?' } %></td>
       </tr>
     <% end %>
   </tbody>

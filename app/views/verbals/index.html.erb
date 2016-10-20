@@ -6,8 +6,10 @@
 
 <p id="notice"><%= notice %></p>
 
-<div class="input-group"> <span class="input-group-addon">Cerca</span>
-  <input id="filter" type="text" class="form-control" placeholder="Scrivi qui...">
+<div class="input-group">
+<span class="input-group-addon"><%= t 'search_form.button' %></span>
+  <input id="filter" type="text" class="form-control"
+                            placeholder="<%= t 'search_form.placeholder' %>">
 </div>
 
 <br/>
@@ -15,11 +17,14 @@
   <table class="table table-condensed table-hover ">
     <thead>
       <tr>
-        <th><%= sortable 'title', 'Titolo'%></th>
-        <th>Contenuto</th>
-        <th>Autori</th>
-        <th><%= sortable 'document_date', 'Data documento'%></th>
-        <th><%= sortable 'updated_at', 'Ultima modifica'%></th>
+        <th><%= sortable 'title',
+                          Verbal.human_attribute_name(:title) %></th>
+        <th><%= Verbal.human_attribute_name(:content) %></th>
+        <th><%= Verbal.human_attribute_name(:authors) %></th>
+        <th><%= sortable 'document_date',
+                          Verbal.human_attribute_name(:document_date) %></th>
+        <th><%= sortable 'updated_at',
+                          Verbal.human_attribute_name(:updated_at) %></th>
       </tr>
     </thead>
 
@@ -32,9 +37,9 @@
         <td><%= verbal.document_date %></td>
         <td><%= l verbal.updated_at %></td>
         <td style="text-align:center">
-          <%= link_to 'Apri', verbal %>
-          <%= link_to 'Modifica', edit_verbal_path(verbal) %>
-          <%= link_to 'Elimina', verbal, method: :delete, data: { confirm: "Sei sicuro?\n:(" } %>
+          <%= link_to t('actions.show'), verbal %>
+          <%= link_to t('actions.edit'), edit_verbal_path(verbal) %>
+          <%= link_to t('actions.delete'), verbal, method: :delete, data: { confirm: "Sei sicuro?\n:(" } %>
         </td>
       </tr>
     <% end %>

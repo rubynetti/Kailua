@@ -2,7 +2,8 @@ it:
   booleans:
     "true": "Sì"
     "false": "No"
-  placeholders:
+  search_form:
+    button: Cerca
     write_here: Scrivi qui...
   activerecord:
     models:
@@ -29,3 +30,4 @@ it:
         residence_place: Luogo di residenza
         tel: Telefono
         complete: Registrato con modulo cartaceo
+        updated_at: Ultima modifica

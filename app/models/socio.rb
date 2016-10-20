@@ -7,6 +7,7 @@ class Socio < ApplicationRecord
   #Formattazione attributi Socio
   def nice_format
     titleize_attributes :name, :surname, :birth_place, :residence_place
+    self.cf.upcase!
     self.contact.downcase!
   end
 
@@ -18,26 +19,26 @@ class Socio < ApplicationRecord
     return true
   end
 
-  def azioni
+  def actions
     if registrato_con_modulo_cartaceo() == false
       return 'Da registrare con modulo cartaceo'
     elsif completo? == true
       return ''
     else
-      return cose_mancanti
+      return missing_fields
     end
   end
 
-  def cose_mancanti
-    stringa = "Dati assenti: <ul>"
-    stringa += "<li>numero di tessera" if number.blank?
-    stringa += "<li>nome" if name.blank?
-    stringa += "<li>cognome" if surname.blank?
-    stringa += "<li>mail" if contact.blank?
-    stringa += "<li>data di nascita" if birthdate.blank?
-    stringa += "<li>luogo di nascita" if birth_place.blank?
-    stringa += "</ul>"
-    return stringa
+  def missing_fields
+    s = '<ul>'
+    s += "<li>nome" if name.blank?
+    s += "<li>numero di tessera" if number.blank?
+    s += "<li>cognome" if surname.blank?
+    s += "<li>mail" if contact.blank?
+    s += "<li>data di nascita" if birthdate.blank?
+    s += "<li>luogo di nascita" if birth_place.blank?
+    s += "</ul>"
+    return s
   end
 
   def generic_status

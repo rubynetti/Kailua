@@ -1,4 +1,11 @@
 en:
+  errors:
+    messages:
+      blank: prova
+  layouts:
+    application:
+      association_manager: Association Manager
+      manage: Manage
   socios:
     create:
       notice: Member saved.
@@ -6,14 +13,25 @@ en:
       notice: Member updated.
     destroy:
       notice: Member deleted.
+    full_name: Full name
+    missing_fields: Missing fields
   actions:
     new: New %{model}
+    show: Show
+    edit: Edit
+    delete: Delete
   booleans:
-    "true": Yes
-    "false": No
-  placeholders:
-    write_here: Write here...
+    "true": "Yes"
+    "false": "No"
+  search_form:
+    button: Search
+    placeholder: Write here...
   activerecord:
+    errors:
+      messages:
+        template:
+          one: '1 error prohibited this %{model} from being saved'
+          other: '%{count} errors prohibited this %{model} from being saved'
     models:
       socio:
         one: Member
