@@ -1,6 +1,13 @@
 en:
+  socios:
+    create:
+      notice: Member saved.
+    update:
+      notice: Member updated.
+    destroy:
+      notice: Member deleted.
   actions:
-    new: New
+    new: New %{model}
   booleans:
     "true": Yes
     "false": No
@@ -23,3 +30,6 @@ en:
   helpers:
     submit:
       create: Add %{model}
+  time:
+    formats:
+      default: "%Y-%m-%d"

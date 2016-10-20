@@ -8,18 +8,22 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <div class="container-responsive">
-      <div class="col-sm-12">
-      <hr style="margin-top:0; border: none" />
-        <strong>Gestionale: </strong>
-        <%= link_to Socio.model_name.human(count: :many), socios_path %> |
-        <%= link_to Verbal.model_name.human(count: :many), verbals_path %>
-        <div class="pull-right"> <%= yield(:menu) %></div>
-      <hr/>
+  <header>
+    <nav class="navbar navbar-default"> navbar-fixed-top
+      <div class="container-responsive">
+        <div class="col-sm-12">
+        <hr style="margin-top:0; border: none" />
+          <strong>Gestionale: </strong>
+          <%= link_to Socio.model_name.human(count: :many), socios_path %> |
+          <%= link_to Verbal.model_name.human(count: :many), verbals_path %>
+          <div class="pull-right"> <%= yield(:menu) %></div>
+        <hr/>
+        </div>
       </div>
-    </div>
+    </nav>
+  </header>
 
+  <body>
     <div class="container-responsive">
     <div class="col-sm-12"><%= yield %></div>
     </div>

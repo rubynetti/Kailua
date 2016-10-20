@@ -1,5 +1,6 @@
 <% content_for(:menu) do %>
-  <%= link_to 'Nuovo Verbale', new_verbal_path %>
+  <%= link_to t('actions.new', model: Verbal.model_name.human),
+                                                        new_verbal_path %>
 </p>
 <% end %>
 
@@ -29,7 +30,7 @@
         <td><%= truncate verbal.content %></td>
         <td><%= verbal.authors %></td>
         <td><%= verbal.document_date %></td>
-        <td><%= verbal.updated_at.strftime '%Y-%m-%d (%H:%M:%S)' %></td>
+        <td><%= l verbal.updated_at %></td>
         <td style="text-align:center">
           <%= link_to 'Apri', verbal %>
           <%= link_to 'Modifica', edit_verbal_path(verbal) %>
@@ -39,7 +40,3 @@
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'Nuovo Verbale', new_verbal_path %>
