@@ -11,7 +11,7 @@ class Socio < ApplicationRecord
     self.contact.downcase!
   end
 
-  def completo?
+  def full_fields?
     if number.blank? or name.blank? or surname.blank? or
       contact.blank? or complete == false or birthdate.blank? or residence_place.blank?
       return false
@@ -20,9 +20,9 @@ class Socio < ApplicationRecord
   end
 
   def actions
-    if registrato_con_modulo_cartaceo() == false
+    if paperwork_filed() == false
       return 'Da registrare con modulo cartaceo'
-    elsif completo? == true
+    elsif full_fields? == true
       return ''
     else
       return missing_fields
@@ -31,25 +31,25 @@ class Socio < ApplicationRecord
 
   def missing_fields
     s = '<ul>'
-    s += "<li>nome" if name.blank?
-    s += "<li>numero di tessera" if number.blank?
-    s += "<li>cognome" if surname.blank?
-    s += "<li>mail" if contact.blank?
-    s += "<li>data di nascita" if birthdate.blank?
-    s += "<li>luogo di nascita" if birth_place.blank?
+    s += "<li>#{Socio.human_attribute_name :name}" if name.blank?
+    s += "<li>#{Socio.human_attribute_name :surname}" if surname.blank?
+    s += "<li>#{Socio.human_attribute_name :number}" if number.blank?
+    s += "<li>#{Socio.human_attribute_name :contact}" if contact.blank?
+    s += "<li>#{Socio.human_attribute_name :birth_place}" if birth_place.blank?
+    s += "<li>#{Socio.human_attribute_name :birthdate}" if birthdate.blank?
     s += "</ul>"
     return s
   end
 
   def generic_status
-    if registrato_con_modulo_cartaceo() == false or completo? == false
+    if paperwork_filed() == false or full_fields? == false
        return '<span class="glyphicon glyphicon-remove"></span>'
     else
       return '<span class="glyphicon glyphicon-ok"></span>'
     end
   end
 
-  def registrato_con_modulo_cartaceo
+  def paperwork_filed
     self.complete
   end
 

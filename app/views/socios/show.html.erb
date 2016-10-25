@@ -22,7 +22,7 @@
 
 <p>
   <strong><%= Socio.human_attribute_name(:registration_date) %>:</strong>
-  <%= @socio.registration_date %>
+  <%= l @socio.registration_date if @socio.registration_date %>
 </p>
 
 <p>
@@ -32,7 +32,7 @@
 
 <p>
   <strong><%= Socio.human_attribute_name(:birthdate) %>:</strong>
-  <%= @socio.birthdate %>
+  <%= l @socio.birthdate if @socio.birthdate %>
 </p>
 
 <p>

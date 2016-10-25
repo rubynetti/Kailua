@@ -1,10 +1,29 @@
 it:
+  layouts:
+    application:
+      association_manager: Gestionale Associazione
+      manage: Gestionale
+  socios:
+    create:
+      notice: Socio salvato.
+    update:
+      notice: Socio modificato.
+    destroy:
+      notice: Socio eliminato.
+    full_name: Nome e cognome
+    missing_fields: Campi da inserire
+
+  actions:
+    new: Nuovo %{model}
+    show: Apri
+    edit: Modifica
+    delete: Elimina
   booleans:
     "true": "Sì"
     "false": "No"
   search_form:
     button: Cerca
-    write_here: Scrivi qui...
+    placeholder: Scrivi qui...
   activerecord:
     models:
       socio:
@@ -18,8 +37,10 @@ it:
         title: Titolo
         content: Contenuto
         authors: Autori
+        document_date: Data documento
+        updated_at: Ultima modifica
       socio:
-        number: Tessera numero
+        number: Numero tessera
         name: Nome
         surname: Cognome
         contact: Email
@@ -31,3 +52,12 @@ it:
         tel: Telefono
         complete: Registrato con modulo cartaceo
         updated_at: Ultima modifica
+    errors:
+      messages:
+        taken: già in uso
+        template:
+          one: '1 errore ha impedito di salvare questo %{model}'
+          other: '%{count} errori hanno impedito di salvare questo %{model}'
+  helpers:
+    submit:
+      create: Nuovo %{model}

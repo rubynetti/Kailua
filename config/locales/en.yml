@@ -1,7 +1,4 @@
 en:
-  errors:
-    messages:
-      blank: prova
   layouts:
     application:
       association_manager: Association Manager

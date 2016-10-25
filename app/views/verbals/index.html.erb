@@ -34,8 +34,8 @@
         <td><%= verbal.title %></td>
         <td><%= truncate verbal.content %></td>
         <td><%= verbal.authors %></td>
-        <td><%= verbal.document_date %></td>
-        <td><%= l verbal.updated_at %></td>
+        <td><%= l verbal.document_date, format: :default %></td>
+        <td><%= l verbal.updated_at.to_date %></td>
         <td style="text-align:center">
           <%= link_to t('actions.show'), verbal %>
           <%= link_to t('actions.edit'), edit_verbal_path(verbal) %>
