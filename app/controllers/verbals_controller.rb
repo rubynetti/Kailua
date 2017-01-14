@@ -25,7 +25,7 @@ class VerbalsController < ApplicationController
     @verbal = Verbal.new(verbal_params)
 
     if @verbal.save
-      redirect_to @verbal, notice: 'Bravissimo! Il verbale è stato salvato.'
+      redirect_to @verbal, notice: 'Il verbale è stato salvato.'
     else
       render :new
     end
@@ -34,7 +34,7 @@ class VerbalsController < ApplicationController
   # PATCH/PUT /verbals/1
   def update
     if @verbal.update(verbal_params)
-      redirect_to @verbal, notice: 'Il verbale è stato aggiornato. Complimenti!'
+      redirect_to @verbal, notice: 'Il verbale è stato aggiornato.'
     else
       render :edit
     end
@@ -43,7 +43,7 @@ class VerbalsController < ApplicationController
   # DELETE /verbals/1
   def destroy
     @verbal.destroy
-    redirect_to verbals_url, notice: 'Il verbale è stato eliminato. :(('
+    redirect_to verbals_url, notice: 'Il verbale è stato eliminato.'
   end
 
   private
