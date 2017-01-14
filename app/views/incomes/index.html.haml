@@ -19,7 +19,7 @@
           = link_to t('actions.edit'), edit_income_path(income)
           = link_to t('actions.delete'), income, :method => :delete, :data => { :confirm => 'Are you sure?' }
     %tr
-      = @incomes.total
+      %td(colspan="4")
 
 %br
 
