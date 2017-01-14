@@ -25,6 +25,7 @@
                           Verbal.human_attribute_name(:document_date) %></th>
         <th><%= sortable 'updated_at',
                           Verbal.human_attribute_name(:updated_at) %></th>
+        <th></th>
       </tr>
     </thead>
 
@@ -34,7 +35,7 @@
         <td><%= verbal.title %></td>
         <td><%= truncate verbal.content %></td>
         <td><%= verbal.authors %></td>
-        <td><%= l verbal.document_date, format: :default %></td>
+        <td><%= l verbal.document_date %></td>
         <td><%= l verbal.updated_at.to_date %></td>
         <td style="text-align:center">
           <%= link_to t('actions.show'), verbal %>
