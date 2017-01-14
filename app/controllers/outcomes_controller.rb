@@ -3,7 +3,9 @@ class OutcomesController < ApplicationController
 
   # GET /outcomes
   def index
-    @outcomes = Outcome.all
+    @outcomes = Outcome.all.order('date_of_transaction ASC')
+    @outcomes = Outcome.all.order("#{params[:sort]} #{params[:direction]}") if params[:sort].present?
+
     respond_to do |format|
       format.html
       format.csv { send_data @outcomes.to_csv, filename: 'uscite.csv' }

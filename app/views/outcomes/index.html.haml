@@ -21,9 +21,11 @@
   %thead
     %tr
       %th
+        %span(style="font-weight: normal") Ordina per
+        .pull-right= sortable 'price_cents', "€"
       %th= Outcome.human_attribute_name('description')
-      %th Categoria
-      %th= Outcome.human_attribute_name('date_of_transaction')
+      %th= sortable 'category_id', Outcome.human_attribute_name(:category)
+      %th= sortable 'date_of_transaction', Outcome.human_attribute_name('date_of_transaction')
       %th
 
   %tbody

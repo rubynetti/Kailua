@@ -30,8 +30,10 @@
           = link_to t('actions.delete'), category, :method => :delete, :data => { :confirm => 'Sicuro?' }
     %tr
       %td
-      %td= Income.total.format
-      %td= Outcome.total.format
+      %td
+        .text-success= Income.total.format
+      %td
+        .text-danger= Outcome.total.format
       %td
         - total = Income.total-Outcome.total
         - if total > Money.new(0)
