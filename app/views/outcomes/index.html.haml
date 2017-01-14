@@ -14,7 +14,7 @@
       %tr
         %td= number_to_currency outcome.price
         %td= outcome.description
-        %td= outcome.date_of_transaction
+        %td= l outcome.date_of_transaction
         %td(style="text-align:right")
           = link_to t('actions.show'), outcome
           = link_to t('actions.edit'), edit_outcome_path(outcome)
