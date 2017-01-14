@@ -9,13 +9,7 @@ class SociosController < ApplicationController
     respond_to do |format|
       format.html
       format.csv { send_data @socios.to_csv, filename: 'soci.csv' }
-      format.xls do
-        if params[:pages]=="true"
-          send_data @socios.to_csv(col_sep: ";"), filename: 'soci.xls'
-        else
-          send_data @socios.to_csv(col_sep: "\t"), filename: 'soci.xls'
-        end
-      end
+      format.xls { send_data @socios.to_csv(col_sep: ";"), filename: 'soci.xls'}
     end
   end
 
