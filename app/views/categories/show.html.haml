@@ -1,9 +1,42 @@
-%p#notice= notice
+- if notice.present?
+  %p#notice= notice
+.pull-left
+  %strong= @category.name
+.pull-right
+  = link_to 'Edit', edit_category_path(@category)
+  \|
+  = link_to 'Back', categories_path
+.clearfix
 
-%p
-  %b Name:
-  = @category.name
+.row
+  .col-sm-6
+    %hr
+    %strong Entrate
+    %hr
+    - @category.incomes.each do |income|
+      .row
+        .col-xs-8= income.description
+        .col-xs-4
+          .pull-right= income.price.format
+    %hr
+    .pull-right
+      Totale
+      %strong= @category.incomes.total
+    .clearfix
+    %hr
 
-= link_to 'Edit', edit_category_path(@category)
-\|
-= link_to 'Back', categories_path
+  .col-sm-6
+    %hr
+    %strong Uscite
+    %hr
+    - @category.outcomes.each do |outcome|
+      .row
+        .col-xs-8= outcome.description
+        .col-xs-4
+          .pull-right= outcome.price.format
+    %hr
+    .pull-right
+      Totale
+      %strong= @category.outcomes.total
+    .clearfix
+    %hr

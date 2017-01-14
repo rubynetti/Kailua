@@ -1,4 +1,4 @@
 class Category < ApplicationRecord
-  has_many :outcome
-  has_many :income
+  has_many :outcomes
+  has_many :incomes
 end

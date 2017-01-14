@@ -16,7 +16,7 @@
       %tr
         %td= income.price.format
         %td= income.description
-        %td= income.category&.name
+        %td= link_to income.category.name, income.category if income.category.present?
         %td= l income.date_of_transaction
         %td(style="text-align:right")
           = link_to t('actions.edit'), edit_income_path(income)

@@ -2,14 +2,17 @@
   %thead
     %tr
       %th Name
-      %th
-      %th
+      %th Entrate
+      %th Uscite
       %th
 
   %tbody
     - @categories.each do |category|
       %tr
-        %td= category.name
+        %td
+          = link_to category.name, category
+        %td.text-success= category.income.total.format
+        %td.text-danger= category.outcome.total.format
         %td(style="text-align:right")
           = link_to t('actions.edit'), edit_category_path(category)
           = link_to t('actions.delete'), category, :method => :delete, :data => { :confirm => 'Sicuro?' }
