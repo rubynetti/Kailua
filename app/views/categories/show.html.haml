@@ -40,7 +40,7 @@
             %td= link_to outcome.description, [:edit, outcome]
             %td= l outcome.date_of_transaction
             %td
-              .pull-right= link_to outcome.price.format, outcome
+              .pull-right= link_to outcome.price.format, [:edit, outcome]
       
       .pull-right
         Totale
