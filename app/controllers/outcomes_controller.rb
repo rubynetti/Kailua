@@ -24,7 +24,7 @@ class OutcomesController < ApplicationController
     @outcome = Outcome.new(outcome_params)
 
     if @outcome.save
-      redirect_to @outcome, notice: 'Outcome was successfully created.'
+      redirect_to outcomes_path, notice: 'Outcome was successfully created.'
     else
       render :new
     end
@@ -33,7 +33,7 @@ class OutcomesController < ApplicationController
   # PATCH/PUT /outcomes/1
   def update
     if @outcome.update(outcome_params)
-      redirect_to @outcome, notice: 'Outcome was successfully updated.'
+      redirect_to outcomes_path, notice: 'Outcome was successfully updated.'
     else
       render :edit
     end
@@ -53,6 +53,6 @@ class OutcomesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def outcome_params
-      params.require(:outcome).permit(:description, :date_of_transaction)
+      params.require(:outcome).permit(:description, :date_of_transaction, :price)
     end
 end
