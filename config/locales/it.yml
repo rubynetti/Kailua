@@ -41,6 +41,9 @@ it:
       outcome:
         one: Uscita
         other: Uscite
+      category:
+        one: Categoria
+        other: Categorie
     attributes:
       verbal:
         title: Titolo

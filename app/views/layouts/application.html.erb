@@ -17,7 +17,8 @@
           <%= link_to Socio.model_name.human(count: :many), socios_path %> |
           <%= link_to Verbal.model_name.human(count: :many), verbals_path %> |
           <%= link_to Income.model_name.human(count: :many), incomes_path %> | 
-          <%= link_to Outcome.model_name.human(count: :many), outcomes_path %>
+          <%= link_to Outcome.model_name.human(count: :many), outcomes_path %> |
+          <%= link_to Category.model_name.human(count: :many), categories_path %>
           <div class="pull-right"> <%= yield(:menu) %></div>
         </div>
       </div>

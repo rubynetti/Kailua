@@ -53,6 +53,6 @@ class IncomesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def income_params
-      params.require(:income).permit(:description, :price, :date_of_transaction)
+      params.require(:income).permit(:description, :price, :date_of_transaction, :category_id)
     end
 end
