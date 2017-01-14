@@ -28,6 +28,19 @@
         %td(style="text-align:right")
           = link_to t('actions.edit'), edit_category_path(category)
           = link_to t('actions.delete'), category, :method => :delete, :data => { :confirm => 'Sicuro?' }
+    %tr
+      %td
+      %td= Income.total.format
+      %td= Outcome.total.format
+      %td
+        - total = Income.total-Outcome.total
+        - if total > Money.new(0)
+          .text-success= total.format
+        - elsif total == Money.new(0)
+          = total.format
+        - else
+          .text-danger= total.format
+      %td
 
 %br
 
