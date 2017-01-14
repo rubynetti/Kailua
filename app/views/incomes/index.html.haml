@@ -22,6 +22,9 @@
           = link_to t('actions.delete'), income, :method => :delete, :data => { :confirm => 'Sei sicuro?' }
     %tr
       %td(colspan="4")
+        %strong Totale
+        = number_to_currency @incomes.total
+
 
 %br
 

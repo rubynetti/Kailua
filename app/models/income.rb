@@ -9,7 +9,8 @@ class Income < ApplicationRecord
     order('date_of_transaction ASC')
   end
   
+  # https://github.com/RubyMoney/money-rails/issues/140
   def self.total
-    sum(:price_cents)
+    Money.new sum(:price_cents)
   end
 end
