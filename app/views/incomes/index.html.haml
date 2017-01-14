@@ -1,7 +1,8 @@
-%p(id="notice")= notice
+- if notice.present?
+  %p(id="notice")= notice
 
-%h1= Income.model_name.human(count: :many)
-
+%strong= Income.model_name.human(count: :many)
+%hr
 %table.table.table-striped.table-hover.table-condensed
   %thead
     %tr
@@ -14,15 +15,18 @@
   %tbody
     - @incomes.each do |income|
       %tr
-        %td= income.price.format
-        %td= income.description
-        %td= link_to income.category.name, income.category if income.category.present?
-        %td= l income.date_of_transaction
-        %td(style="text-align:right")
+        %td.col-xs-1
+          .pull-right
+            = humanized_money income.price
+            = currency_symbol
+        %td.col-xs-7= income.description
+        %td.col-xs-1= link_to income.category.name, income.category if income.category.present?
+        %td.col-xs-1= l income.date_of_transaction
+        %td.col-xs-1(style="text-align:right")
           = link_to t('actions.edit'), edit_income_path(income)
           = link_to t('actions.delete'), income, :method => :delete, :data => { :confirm => 'Sei sicuro?' }
     %tr
-      %td(colspan="4")
+      %td(colspan="5")
         %strong Totale
         = @incomes.total.format
 

@@ -1,6 +1,8 @@
-%p(id="notice")= notice
+- if notice.present?
+  %p(id="notice")= notice
 
-%h1= Outcome.model_name.human(count: :many)
+%strong= Outcome.model_name.human(count: :many)
+%hr
 
 %table.table.table-hover.table-striped.table-condensed
   %thead
@@ -14,11 +16,14 @@
   %tbody
     - @outcomes.each do |outcome|
       %tr
-        %td= outcome.price.format
-        %td= outcome.description
-        %td= link_to outcome.category.name, outcome.category if outcome.category.present?
-        %td= l outcome.date_of_transaction
-        %td(style="text-align:right")
+        %td.col-xs-1
+          .pull-right
+            = humanized_money outcome.price
+            = currency_symbol
+        %td.col-xs-6= outcome.description
+        %td.col-xs-1= link_to outcome.category.name, outcome.category if outcome.category.present?
+        %td.col-xs-1= l outcome.date_of_transaction
+        %td.col-xs-2(style="text-align:right")
           = link_to t('actions.edit'), edit_outcome_path(outcome)
           = link_to t('actions.delete'), outcome, :method => :delete, :data => { :confirm => 'Sei sicuro?' }
     %tr

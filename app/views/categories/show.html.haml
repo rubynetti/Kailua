@@ -11,38 +11,39 @@
 %hr
 
 .row
-  .col-sm-6
-    
-    %strong(style="margin-bottom: 20px; display: block")= link_to 'Entrate', incomes_path
-    
-    %table.table
-      - @category.incomes.each do |income|
-        %tr
-          %td= link_to income.description, [:edit, income]
-          %td= l income.date_of_transaction
-          %td
-            .pull-right= link_to income.price.format, income
-    
-    .pull-right
-      Totale
-      %strong= @category.incomes.total.format
-    .clearfix
-    %hr
-    
-  .col-sm-6
-    
-    %strong(style="margin-bottom: 20px; display: block")= link_to 'Uscite', outcomes_path
-    
-    %table.table
-      - @category.outcomes.each do |outcome|
-        %tr
-          %td= link_to outcome.description, [:edit, outcome]
-          %td= l outcome.date_of_transaction
-          %td
-            .pull-right= link_to outcome.price.format, outcome
-    
-    .pull-right
-      Totale
-      %strong= @category.outcomes.total.format
-    .clearfix
-    %hr
+  - if @category.incomes.present?
+    .col-sm-6
+      
+      %strong(style="margin-bottom: 20px; display: block")= link_to 'Entrate', incomes_path
+      
+      %table.table
+        - @category.incomes.each do |income|
+          %tr
+            %td= link_to income.description, [:edit, income]
+            %td= l income.date_of_transaction
+            %td
+              .pull-right= link_to income.price.format, income
+      
+      .pull-right
+        Totale
+        %strong= @category.incomes.total.format
+      .clearfix
+      %hr
+  - if @category.outcomes.present?
+    .col-sm-6
+      
+      %strong(style="margin-bottom: 20px; display: block")= link_to 'Uscite', outcomes_path
+      
+      %table.table
+        - @category.outcomes.each do |outcome|
+          %tr
+            %td= link_to outcome.description, [:edit, outcome]
+            %td= l outcome.date_of_transaction
+            %td
+              .pull-right= link_to outcome.price.format, outcome
+      
+      .pull-right
+        Totale
+        %strong= @category.outcomes.total.format
+      .clearfix
+      %hr

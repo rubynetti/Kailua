@@ -1,9 +1,14 @@
+- if notice.present?
+  %p(id="notice")= notice
+%strong= Category.model_name.human(count: :many)
+%hr
 %table.table
   %thead
     %tr
       %th Name
       %th Entrate
       %th Uscite
+      %th Saldo
       %th
 
   %tbody
@@ -13,10 +18,17 @@
           = link_to category.name, category
         %td.text-success= category.incomes.total.format
         %td.text-danger= category.outcomes.total.format
+        %td
+          - if category.total > Money.new(0)
+            .text-success= category.total.format
+          - elsif category.total == Money.new(0)
+            = category.total.format
+          - else
+            .text-danger= category.total.format
         %td(style="text-align:right")
           = link_to t('actions.edit'), edit_category_path(category)
           = link_to t('actions.delete'), category, :method => :delete, :data => { :confirm => 'Sicuro?' }
 
 %br
 
-= link_to 'New Category', new_category_path
+= link_to 'Aggiungi Categoria', new_category_path, class: 'btn btn-primary'

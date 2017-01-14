@@ -54,7 +54,7 @@ it:
       income: &income
         description: Descrizione
         price: €
-        date_of_transaction: Data della transizione
+        date_of_transaction: Data
       outcome:
         <<: *income
       socio:
