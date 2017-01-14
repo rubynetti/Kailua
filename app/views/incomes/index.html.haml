@@ -7,6 +7,7 @@
     %tr
       %th 
       %th= Income.human_attribute_name('description')
+      %th Categoria
       %th Data di transazione
       %th
 
@@ -15,6 +16,7 @@
       %tr
         %td= income.price.format
         %td= income.description
+        %td= income.category&.name
         %td= l income.date_of_transaction
         %td(style="text-align:right")
           = link_to t('actions.show'), income

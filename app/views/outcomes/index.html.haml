@@ -7,8 +7,8 @@
     %tr
       %th
       %th= Outcome.human_attribute_name('description')
+      %th Categoria
       %th= Outcome.human_attribute_name('date_of_transaction')
-      %th
       %th
 
   %tbody
@@ -16,6 +16,7 @@
       %tr
         %td= outcome.price.format
         %td= outcome.description
+        %td= outcome.category&.name
         %td= l outcome.date_of_transaction
         %td(style="text-align:right")
           = link_to t('actions.show'), outcome
