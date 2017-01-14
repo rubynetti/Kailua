@@ -2,8 +2,8 @@
   <% if @verbal.errors.any? %>
     <div id="error_explanation">
       <h3 id="header_title">
-        <%= pluralize(@verbal.errors.count, "errore ha", "errori hanno") %>
-         impedito di salvare questo verbale:
+        <%= t "activerecord.errors.messages.template",
+                count: @verbal.errors.count, model: 'verbal' %>
       </h3>
       <ul>
         <% @verbal.errors.full_messages.each do |msg| %>
@@ -32,9 +32,5 @@
       <%= f.date_select :document_date %>
     </div>
 
-  <%
-  label = "Crea"
-  label = "Aggiorna" if action_name == 'edit'
-  %>
-    <%= f.submit label, class: 'btn btn-primary btn-block' %>
+    <%= f.submit class: 'btn btn-primary btn-block' %>
 <% end %>

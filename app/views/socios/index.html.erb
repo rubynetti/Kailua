@@ -1,6 +1,7 @@
 <% content_for(:menu) do %>
-  <%= link_to 'Aggiungi Socio', new_socio_path %> |
-  
+  <%= link_to  t('actions.new', model: Socio.model_name.human),
+                                                            new_socio_path %> |
+
   Download:
   <%= link_to "CSV", socios_path(format: "csv") %> |
   <%= link_to "Excel", socios_path(format: "xls") %> |
@@ -10,8 +11,10 @@
 
 <p id="notice"><%= notice %></p>
 
-<div class="input-group"> <span class="input-group-addon">Cerca</span>
-  <input id="filter" type="text" class="form-control" placeholder="Scrivi qui...">
+<div class="input-group">
+<span class="input-group-addon"><%= t 'search_form.button' %></span>
+  <input id="filter" type="text" class="form-control"
+                            placeholder="<%= t 'search_form.placeholder' %>">
 </div>
 
 <br/>
@@ -19,37 +22,35 @@
 <table class="table table-condensed table-hover ">
   <thead>
     <tr>
-      <th><%= sortable 'number', 'N°'%></th>
+      <th><%= sortable 'number', Socio.human_attribute_name(:number)%></th>
       <th></th>
-      <th>Nome e Cognome</th>
-      <th><%= sortable 'contact', 'Mail'%></th>
-      <th><%= sortable 'registration_date', 'Data di registrazione'%></th>
-      <th>Azioni</th>
+      <th><%= t 'socios.full_name' %></th>
+      <th><%= sortable 'contact', 'E-Mail'%></th>
+      <th><%= sortable 'registration_date',
+                        Socio.human_attribute_name(:registration_date)%></th>
+      <th><%= t 'socios.missing_fields' %></th>
       <th></th>
     </tr>
   </thead>
 
   <tbody class="searchable">
     <% @socios.each do |socio| %>
-      <% classe = "danger" if socio.complete== false %>
-      <% classe = "warning" if socio.complete == true %>
-      <% classe = "success" if socio.completo? %>
-      <tr class="<%=classe %>" class="searchable">
+      <% socio_class = "danger" if socio.complete== false %>
+      <% socio_class = "warning" if socio.complete == true %>
+      <% socio_class = "success" if socio.full_fields? %>
+      <tr class="<%=socio_class %>" class="searchable">
         <td><%= socio.number %></td>
         <td><%= raw socio.generic_status %></td>
         <td><%= socio.name %> <%= socio.surname %></td>
         <td><%= truncate socio.contact %></td>
-
         <td><%= l socio.registration_date if socio.registration_date.present?%></td>
-        <td><%= raw socio.azioni %></td>
-
+        <td><%= raw socio.actions %></td>
 
         <td style="text-align:right">
-        <%= link_to 'Modifica', edit_socio_path(socio) %>
-        <%= link_to 'Cancella', socio, method: :delete, data: { confirm: 'Sei sicuro?' } %></td>
+        <%= link_to t('actions.edit'), edit_socio_path(socio) %>
+        <%= link_to t('actions.delete'), socio, method: :delete, data: { confirm: 'Sei sicuro?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 </div><!--.table-responsive-->
-<br>
