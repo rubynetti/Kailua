@@ -24,7 +24,7 @@ class IncomesController < ApplicationController
     @income = Income.new(income_params)
 
     if @income.save
-      redirect_to incomes_path, notice: 'Income was successfully created.'
+      redirect_to incomes_path, notice: 'Entrata aggiunta.'
     else
       render :new
     end
@@ -33,7 +33,7 @@ class IncomesController < ApplicationController
   # PATCH/PUT /incomes/1
   def update
     if @income.update(income_params)
-      redirect_to incomes_path, notice: 'Income was successfully updated.'
+      redirect_to incomes_path, notice: 'Entrata aggiornata.'
     else
       render :edit
     end
@@ -42,7 +42,7 @@ class IncomesController < ApplicationController
   # DELETE /incomes/1
   def destroy
     @income.destroy
-    redirect_to incomes_url, notice: 'Income was successfully destroyed.'
+    redirect_to incomes_url, notice: 'Entrata cancellata.'
   end
 
   private
