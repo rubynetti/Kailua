@@ -38,6 +38,9 @@ it:
       outcome:
         one: Uscita
         other: Uscite
+      outcome:
+        one: Uscita
+        other: Uscite
     attributes:
       verbal:
         title: Titolo
@@ -45,10 +48,12 @@ it:
         authors: Autori
         document_date: Data documento
         updated_at: Ultima modifica
-      income:
+      income: &income
         description: Descrizione
         price: €
         date_of_transaction: Data della transizione
+      outcome:
+        <<: *income
       socio:
         number: Numero tessera
         name: Nome

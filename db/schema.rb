@@ -10,9 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170114114900) do
+ActiveRecord::Schema.define(version: 20170114122455) do
 
   create_table "incomes", force: :cascade do |t|
+    t.text     "description"
+    t.date     "date_of_transaction"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+    t.integer  "price_cents",         default: 0,     null: false
+    t.string   "price_currency",      default: "EUR", null: false
+  end
+
+  create_table "outcomes", force: :cascade do |t|
     t.text     "description"
     t.date     "date_of_transaction"
     t.datetime "created_at",                          null: false

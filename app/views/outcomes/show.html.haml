@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Description:
+  = @outcome.description
+%p
+  %b Date of transaction:
+  = @outcome.date_of_transaction
+
+= link_to 'Edit', edit_outcome_path(@outcome)
+\|
+= link_to 'Back', outcomes_path

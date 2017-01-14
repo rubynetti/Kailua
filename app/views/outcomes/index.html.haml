@@ -1,0 +1,25 @@
+%h1= Outcome.model_name.human(count: :many)
+
+%table.table
+  %thead
+    %tr
+      %th= Outcome.human_attribute_name('description')
+      %th= Outcome.human_attribute_name('description')
+      %th= Outcome.human_attribute_name('date_of_transaction')
+      %th
+      %th
+
+  %tbody
+    - @outcomes.each do |outcome|
+      %tr
+        %td= number_to_currency outcome.price
+        %td= outcome.description
+        %td= outcome.date_of_transaction
+        %td
+          = link_to 'Show', outcome
+          = link_to 'Edit', edit_outcome_path(outcome)
+          = link_to 'Destroy', outcome, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'Aggiungi Uscita', new_outcome_path, class: 'btn btn-primary'
