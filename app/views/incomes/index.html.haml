@@ -13,7 +13,7 @@
   %tbody
     - @incomes.each do |income|
       %tr
-        %td= number_to_currency income.price
+        %td= income.price.format
         %td= income.description
         %td= l income.date_of_transaction
         %td(style="text-align:right")
@@ -23,7 +23,7 @@
     %tr
       %td(colspan="4")
         %strong Totale
-        = number_to_currency @incomes.total
+        = @incomes.total.format
 
 
 %br

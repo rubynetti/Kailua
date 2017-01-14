@@ -14,7 +14,7 @@
   %tbody
     - @outcomes.each do |outcome|
       %tr
-        %td= number_to_currency outcome.price
+        %td= outcome.price.format
         %td= outcome.description
         %td= l outcome.date_of_transaction
         %td(style="text-align:right")
@@ -24,7 +24,7 @@
     %tr
       %td(colspan="4")
         %strong Totale
-        = number_to_currency @outcomes.total
+        = @outcomes.total.format
 
 %br
 
