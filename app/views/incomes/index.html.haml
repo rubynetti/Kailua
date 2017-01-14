@@ -1,6 +1,13 @@
 - if notice.present?
   %p(id="notice")= notice
 
+- content_for (:menu) do
+  
+  Download:
+  = link_to "CSV", incomes_path(format: "csv")
+  = "-"
+  = link_to "Excel", incomes_path(format: "xls")
+
 %strong= Income.model_name.human(count: :many)
 %hr
 %table.table.table-striped.table-hover.table-condensed

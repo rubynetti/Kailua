@@ -6,7 +6,9 @@ class Income < ApplicationRecord
   belongs_to :category, optional: true
   register_currency :eur
 
-    def self.default_scope
+  include Csvable
+
+  def self.default_scope
     order('date_of_transaction ASC')
   end
   

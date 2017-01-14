@@ -4,6 +4,11 @@ class IncomesController < ApplicationController
   # GET /incomes
   def index
     @incomes = Income.all
+    respond_to do |format|
+      format.html
+      format.csv { send_data @incomes.to_csv, filename: 'entrate.csv' }
+      format.xls { send_data @incomes.to_csv(col_sep: "\t"), filename: 'entrate.xls'}
+    end
   end
 
   # GET /incomes/1

@@ -4,6 +4,11 @@ class OutcomesController < ApplicationController
   # GET /outcomes
   def index
     @outcomes = Outcome.all
+    respond_to do |format|
+      format.html
+      format.csv { send_data @outcomes.to_csv, filename: 'uscite.csv' }
+      format.xls { send_data @outcomes.to_csv(col_sep: "\t"), filename: 'uscite.xls'}
+    end
   end
 
   # GET /outcomes/1

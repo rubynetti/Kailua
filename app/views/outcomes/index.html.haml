@@ -1,7 +1,20 @@
+- content_for(:menu) do 
+  Download:
+  = link_to "CSV", outcomes_path(format: "csv") 
+  = "-"
+  = link_to "Excel", outcomes_path(format: "xls") 
+
+
 - if notice.present?
   %p(id="notice")= notice
 
-%strong= Outcome.model_name.human(count: :many)
+.row
+  .col-sm-12
+    .pull-left(style="margin-top: 10px")
+      %strong= Outcome.model_name.human(count: :many)
+    .pull-right
+      = link_to  'Aggiungi uscita', new_outcome_path, class: 'btn btn-primary'
+
 %hr
 
 %table.table.table-hover.table-striped.table-condensed
@@ -27,10 +40,19 @@
           = link_to t('actions.edit'), edit_outcome_path(outcome)
           = link_to t('actions.delete'), outcome, :method => :delete, :data => { :confirm => 'Sei sicuro?' }
     %tr
-      %td(colspan="5")
-        = @outcomes.total.format
-        %strong Totale
+      %td
+        %strong
+          .pull-right
+            = humanized_money @outcomes.total
+            = currency_symbol
+      %td(colspan="4")
+        
+
+
+
+.row
+  .col-sm-12
+    .pull-right
+      = link_to  'Aggiungi uscita', new_outcome_path, class: 'btn btn-primary'
 
 %br
-
-= link_to 'Aggiungi Uscita', new_outcome_path, class: 'btn btn-primary'

@@ -71,5 +71,7 @@ class Socio < ApplicationRecord
         csv << row
       end
     end
-end
+  end
+
+  
 end
