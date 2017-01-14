@@ -1,4 +1,3 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -11,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161014064522) do
+ActiveRecord::Schema.define(version: 20170114114900) do
+
+  create_table "incomes", force: :cascade do |t|
+    t.text     "description"
+    t.date     "date_of_transaction"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+    t.integer  "price_cents",         default: 0,     null: false
+    t.string   "price_currency",      default: "EUR", null: false
+  end
 
   create_table "socios", force: :cascade do |t|
     t.string   "name"

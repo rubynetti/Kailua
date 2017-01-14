@@ -1,0 +1,26 @@
+%h1= Income.model_name.human(count: 2)
+
+%table.table
+  %thead
+    %tr
+      %th 
+      %th= Income.human_attribute_name('description')
+      %th Data di transazione
+      %th
+
+  %tbody
+    - @incomes.each do |income|
+      %tr
+        %td= number_to_currency income.price
+        %td= income.description
+        %td= l income.date_of_transaction
+        %td(style="text-align:right")
+          = link_to t('actions.show'), income
+          = link_to t('actions.edit'), edit_income_path(income)
+          = link_to t('actions.delete'), income, :method => :delete, :data => { :confirm => 'Are you sure?' }
+    %tr
+      = @incomes.total
+
+%br
+
+= link_to 'Aggiungi entrata', new_income_path, class: 'btn btn-primary'

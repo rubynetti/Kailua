@@ -32,6 +32,12 @@ it:
       verbal:
         one: Verbale
         other: Verbali
+      income:
+        one: Entrata
+        other: Entrate
+      outcome:
+        one: Uscita
+        other: Uscite
     attributes:
       verbal:
         title: Titolo
@@ -39,6 +45,10 @@ it:
         authors: Autori
         document_date: Data documento
         updated_at: Ultima modifica
+      income:
+        description: Descrizione
+        price: €
+        date_of_transaction: Data della transizione
       socio:
         number: Numero tessera
         name: Nome
@@ -60,4 +70,4 @@ it:
           other: '%{count} errori hanno impedito di salvare questo %{model}'
   helpers:
     submit:
-      create: Nuovo %{model}
+      create: Salva %{model}
