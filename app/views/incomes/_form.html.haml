@@ -1,7 +1,7 @@
 = simple_form_for @income do |f|
   = f.error_notification
   = f.input :description, as: :string
-  = f.input :category, include_blank: true, collection: Category.all
+  = f.association :category
   = f.input :price
   = f.input :date_of_transaction
   = f.button :submit
