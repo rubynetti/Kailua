@@ -23,3 +23,4 @@ end
 
 gem 'bootstrap-sass'
 gem 'rails-i18n'
+gem 'haml-rails'
