@@ -13,11 +13,12 @@
     %hr
     %strong Entrate
     %hr
-    - @category.incomes.each do |income|
-      .row
-        .col-xs-8= income.description
-        .col-xs-4
-          .pull-right= income.price.format
+    %table.table
+      - @category.incomes.each do |income|
+        %tr
+          %td= income.description
+          %td
+            .pull-right= income.price.format
     %hr
     .pull-right
       Totale

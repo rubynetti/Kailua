@@ -11,8 +11,8 @@
       %tr
         %td
           = link_to category.name, category
-        %td.text-success= category.income.total.format
-        %td.text-danger= category.outcome.total.format
+        %td.text-success= category.incomes.total.format
+        %td.text-danger= category.outcomes.total.format
         %td(style="text-align:right")
           = link_to t('actions.edit'), edit_category_path(category)
           = link_to t('actions.delete'), category, :method => :delete, :data => { :confirm => 'Sicuro?' }
