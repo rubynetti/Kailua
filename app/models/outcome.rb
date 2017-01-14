@@ -8,10 +8,6 @@ class Outcome < ApplicationRecord
 
   include Csvable
 
-  def self.default_scope
-    order('date_of_transaction ASC')
-  end
-
   def self.total
     Money.new sum(:price_cents)
   end
