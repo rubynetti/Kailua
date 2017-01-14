@@ -30,6 +30,7 @@
           = link_to t('actions.delete'), category, :method => :delete, :data => { :confirm => 'Sicuro?' }
     %tr
       %td
+        %strong Totale
       %td
         .text-success= Income.total.format
       %td
