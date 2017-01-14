@@ -21,6 +21,10 @@
           = link_to t('actions.show'), outcome
           = link_to t('actions.edit'), edit_outcome_path(outcome)
           = link_to t('actions.delete'), outcome, :method => :delete, :data => { :confirm => 'Sei sicuro?' }
+    %tr
+      %td(colspan="4")
+        %strong Totale
+        = number_to_currency @outcomes.total
 
 %br
 

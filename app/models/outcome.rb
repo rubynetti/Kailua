@@ -9,6 +9,6 @@ class Outcome < ApplicationRecord
     order('date_of_transaction ASC')
   end
   def self.total
-    sum(:price_cents)
+    Money.new sum(:price_cents)
   end
 end
