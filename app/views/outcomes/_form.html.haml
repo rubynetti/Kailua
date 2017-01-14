@@ -1,7 +1,7 @@
 = simple_form_for(@outcome) do |f|
   = f.error_notification
-  = f.association :category
   = f.input :description, as: :string
+  = f.association :category
   = f.input :price
   = f.input :date_of_transaction
   = f.button :submit

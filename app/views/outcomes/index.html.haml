@@ -22,9 +22,9 @@
           = link_to t('actions.edit'), edit_outcome_path(outcome)
           = link_to t('actions.delete'), outcome, :method => :delete, :data => { :confirm => 'Sei sicuro?' }
     %tr
-      %td(colspan="4")
-        %strong Totale
+      %td(colspan="5")
         = @outcomes.total.format
+        %strong Totale
 
 %br
 

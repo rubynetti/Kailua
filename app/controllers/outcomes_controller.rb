@@ -53,6 +53,6 @@ class OutcomesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def outcome_params
-      params.require(:outcome).permit(:description, :date_of_transaction, :price, :category)
+      params.require(:outcome).permit(:description, :date_of_transaction, :price, :category_id)
     end
 end

@@ -3,7 +3,7 @@ class Income < ApplicationRecord
   validates :description, presence: true
   validates :price, presence: true
   validates :date_of_transaction, presence: true
-  belongs_to :category
+  belongs_to :category, optional: true
   register_currency :eur
 
     def self.default_scope
