@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :incomes
   resources :verbals
   resources :socios
   root "socios#index"

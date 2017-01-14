@@ -1,0 +1,12 @@
+= simple_form_for @income do |f|
+  - if @income.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@income.errors.count, "error")} prohibited this income from being saved:"
+      %ul
+        - @income.errors.full_messages.each do |msg|
+          %li= msg
+
+  = f.input :description, as: :string
+  = f.input :price
+  = f.input :date_of_transaction
+  = f.button :submit

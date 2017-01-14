@@ -24,3 +24,5 @@ end
 gem 'bootstrap-sass'
 gem 'rails-i18n'
 gem 'haml-rails'
+gem 'money-rails'
+gem 'simple_form'
