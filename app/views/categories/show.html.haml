@@ -8,34 +8,36 @@
   = link_to 'Back', categories_path
 .clearfix
 
+%hr
+
 .row
   .col-sm-6
-    %hr
-    %strong Entrate
-    %hr
+    
+    %strong(style="margin-bottom: 20px; display: block") Entrate
+    
     %table.table
       - @category.incomes.each do |income|
         %tr
           %td= income.description
           %td
             .pull-right= income.price.format
-    %hr
+    
     .pull-right
       Totale
       %strong= @category.incomes.total
     .clearfix
-    %hr
-
+    
   .col-sm-6
-    %hr
-    %strong Uscite
-    %hr
-    - @category.outcomes.each do |outcome|
-      .row
-        .col-xs-8= outcome.description
-        .col-xs-4
-          .pull-right= outcome.price.format
-    %hr
+    
+    %strong(style="margin-bottom: 20px; display: block") Uscite
+    
+    %table.table
+      - @category.outcomes.each do |outcome|
+        %tr
+          %td= outcome.description
+          %td
+            .pull-right= outcome.price.format
+    
     .pull-right
       Totale
       %strong= @category.outcomes.total
