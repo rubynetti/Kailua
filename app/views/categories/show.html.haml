@@ -22,7 +22,7 @@
             %td= link_to income.description, [:edit, income]
             %td= l income.date_of_transaction
             %td
-              .pull-right= link_to income.price.format, income
+              .pull-right= link_to income.price.format, [:edit, income]
       
       .pull-right
         Totale
