@@ -1,0 +1,14 @@
+%p#notice= notice
+
+.panel.panel-default
+  .panel-heading
+    .pull-left
+      %h3.panel-title
+        %strong= @verbal.title
+      = @verbal.authors
+      = l @verbal.document_date
+    .pull-right
+      = link_to raw("<span class='glyphicon glyphicon-pencil'/></span> Modifica"), edit_verbal_path(@verbal), class: 'btn btn-primary'
+    .clearfix
+  .panel-body
+    = simple_format @verbal.content
