@@ -2,13 +2,18 @@
   %p(id="notice")= notice
 
 - content_for (:menu) do
-  
   Download:
   = link_to "CSV", incomes_path(format: "csv")
   = "-"
   = link_to "Excel", incomes_path(format: "xls")
 
-%strong= Income.model_name.human(count: :many)
+.row
+  .col-sm-12
+    .pull-left(style="margin-top: 10px")
+      %strong= Income.model_name.human(count: :many)
+    .pull-right
+      = link_to  'Aggiungi entrata', new_income_path, class: 'btn btn-primary'
+
 %hr
 %table.table.table-striped.table-hover.table-condensed
   %thead
