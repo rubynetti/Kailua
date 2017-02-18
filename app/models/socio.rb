@@ -1,5 +1,4 @@
 class Socio < ApplicationRecord
-  include InputFormatter
 
   validates :number, uniqueness: true, allow_blank: true
 
@@ -58,9 +57,13 @@ class Socio < ApplicationRecord
     while Socio.exists?(number: index) do
       index +=1
     end
-
     return index
+  end
 
+  def titleize_attributes *to_titleize
+    to_titleize.each do |a|
+    self.send "#{a}=", send(a).titleize if self.has_attribute?(a)
+    end
   end
 
   def self.to_csv(options = {})
