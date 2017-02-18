@@ -11,9 +11,9 @@
         .container-responsive
           .col-sm-12
             %hr{:style => "margin-top:0; border: none"}/
-            = link_to Contact.model_name.human(count: :many), contacts_path
-            \/
             = link_to Socio.model_name.human(count: :many), socios_path
+            \/
+            = link_to Contact.model_name.human(count: :many), contacts_path
             \/
             = link_to Verbal.model_name.human(count: :many), verbals_path
             \/
@@ -22,6 +22,7 @@
             = link_to Outcome.model_name.human(count: :many), outcomes_path
             \/
             = link_to Category.model_name.human(count: :many), categories_path
+
             .pull-right
               = yield(:menu)
             %hr{:style => "margin-top:0; border: none"}/
