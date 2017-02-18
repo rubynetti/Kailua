@@ -11,16 +11,16 @@
   = @contact.contact
 %p
   %b Birthdate:
-  = @contact.birthdate
+  = l @contact.birthdate  if @contact.birthdate.present?
 %p
   %b Tel:
   = @contact.tel
 %p
+  %b Birth place:
+  = @contact.birth_place
+%p
   %b Residence place:
   = @contact.residence_place
-%p
-  %b Registration place:
-  = @contact.registration_place
 
 = link_to 'Edit', edit_contact_path(@contact)
 \|
