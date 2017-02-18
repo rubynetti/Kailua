@@ -26,6 +26,9 @@ it:
     placeholder: Scrivi qui...
   activerecord:
     models:
+      contact:
+        one: Contatto
+        other: Contatti
       socio:
         one: Socio
         other: Soci
