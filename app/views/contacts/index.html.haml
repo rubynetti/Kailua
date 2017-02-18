@@ -17,7 +17,7 @@
         %td= contact.name
         %td= contact.surname
         %td= contact.contact
-        %td= l contact.birthdate
+        %td= l contact.birthdate if contact.birthdate.present?
         %td= contact.tel
         %td= contact.residence_place
         %td
