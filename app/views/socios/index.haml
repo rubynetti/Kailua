@@ -1,0 +1,44 @@
+- content_for(:menu) do
+  = link_to  t('actions.new', model: Socio.model_name.human), |
+    new_socio_path                                            |
+  \/
+  
+  Download:
+  \#{link_to "CSV", socios_path(format: "csv")} -
+  \#{link_to "Excel", socios_path(format: "xls")}
+
+
+%p#notice= notice
+.input-group
+  %span.input-group-addon= t 'search_form.button'
+  %input#filter.form-control{:placeholder => t('search_form.placeholder'), :type => "text"}/
+%br/
+.table-responsive
+  %table.table.table-condensed.table-hover
+    %thead
+      %tr
+        %th= sortable 'number', Socio.human_attribute_name(:number)
+        %th
+        %th= t 'socios.full_name'
+        %th= sortable 'contact', 'E-Mail'
+        %th= sortable 'registration_date',                  |
+            Socio.human_attribute_name(:registration_date) |
+        %th= t 'socios.missing_fields'
+        %th
+    %tbody.searchable
+      - @socios.each do |socio|
+        - socio_class = "danger" if socio.complete== false
+        - socio_class = "warning" if socio.complete == true
+        - socio_class = "success" if socio.full_fields?
+        %tr{:class => socio_class}
+          %td= socio.number
+          %td= raw socio.generic_status
+          %td
+            = socio.name
+            = socio.surname
+          %td= truncate socio.contact
+          %td= l socio.registration_date if socio.registration_date.present?
+          %td= raw socio.actions
+          %td{:style => "text-align:right"}
+            = link_to t('actions.edit'), edit_socio_path(socio)
+            = link_to t('actions.delete'), socio, method: :delete, data: { confirm: 'Sei sicuro?' }
