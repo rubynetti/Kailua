@@ -1,0 +1,31 @@
+%table.table
+  %thead
+    %tr
+      %th Name
+      %th Surname
+      %th Contact
+      %th Birthdate
+      %th Tel
+      %th Residence place
+      %th
+      %th
+      %th
+
+  %tbody
+    - @contacts.each do |contact|
+      %tr
+        %td= contact.name
+        %td= contact.surname
+        %td= contact.contact
+        %td= l contact.birthdate
+        %td= contact.tel
+        %td= contact.residence_place
+        %td
+          .pull-right
+            = link_to 'Show', contact
+            = link_to 'Edit', edit_contact_path(contact)
+            = link_to 'Destroy', contact, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Contact', new_contact_path
