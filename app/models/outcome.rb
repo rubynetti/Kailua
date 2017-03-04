@@ -6,6 +6,11 @@ class Outcome < ApplicationRecord
   belongs_to :category, optional: true
   register_currency :eur
 
+
+  scope :with_year, ->(year) {
+    date = DateTime.new(year)
+    where(created_at: date...date.next_year)
+  }
   include Csvable
 
   def self.total

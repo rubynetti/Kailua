@@ -1,0 +1,31 @@
+.row
+  .col-sm-12
+    .text-center
+      %h2
+        = @balance.name
+
+      %p
+        %span(style="font-size: 12px")= link_to "Modifica", [:edit, @balance]
+      %p Da #{l @balance.start_date} a #{l @balance.end_date}
+      %p= simple_format @balance.description
+    
+  .col-sm-6
+    .panel.panel-default
+      .panel-heading
+        %h3.panel-title Entrate
+      %table.table
+        - @balance.income.each do |income|
+          %tr
+            %td= l income.date_of_transaction
+            %td= income.description
+            %td= income.price
+  .col-sm-6
+    .panel.panel-default
+      .panel-heading
+        %h3.panel-title Uscite
+      %table.table
+        - @balance.outcome.each do |income|
+          %tr
+            %td= l income.date_of_transaction
+            %td= income.description
+            %td= income.price

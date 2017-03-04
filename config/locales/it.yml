@@ -47,6 +47,9 @@ it:
       category:
         one: Categoria
         other: Categorie
+      balance:
+        one: Bilancio
+        other: Bilanci
     attributes:
       verbal:
         title: Titolo
