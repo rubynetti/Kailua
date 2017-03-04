@@ -34,6 +34,12 @@ class BalancesController < ApplicationController
     end
   end
 
+  def destroy
+    @balance = Balance.find params[:id]
+    @balance.destroy
+    redirect_to balances_path
+  end
+
   def balance_params
     params.require(:balance).permit(:name, :description, :start_date, :end_date)
   end
