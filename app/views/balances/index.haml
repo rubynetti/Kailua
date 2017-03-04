@@ -1,2 +1,17 @@
-= link_to "Crea bilancio", new_balance_path, class: 'btn btn-primary'
-= render @balances
+%table.table
+  %thead
+    %tr
+      %th Nome
+      %th Periodo
+
+  - @balances.each do |balance|
+    %tr
+      %td #{link_to balance.name, balance}
+      %td Da #{balance.start_date} a #{balance.end_date}
+      %td
+        .pull-right
+          = link_to t('action.show'), balance
+          = link_to t('action.edit'), [:edit, balance]
+          = link_to t('action.delete'), balance, method: :delete, data: {confirm: 'Sei sicuro?'}
+
+= link_to "Crea nuovo bilancio", new_balance_path, class: 'btn btn-primary'
