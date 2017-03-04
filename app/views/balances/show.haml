@@ -7,7 +7,8 @@
       %p
         %span(style="font-size: 12px")= link_to "Modifica", [:edit, @balance]
       %p Da #{l @balance.start_date} a #{l @balance.end_date}
-      %p= simple_format @balance.description
+      - if @balance.description.present?
+        %p= simple_format @balance.description
     
   .col-sm-6
     .panel.panel-default
@@ -19,6 +20,11 @@
             %td= l income.date_of_transaction
             %td= income.description
             %td= income.price
+        %tr
+          %td
+          %td Totale
+          %td
+            %strong= @balance.income.total
   .col-sm-6
     .panel.panel-default
       .panel-heading
@@ -29,3 +35,8 @@
             %td= l income.date_of_transaction
             %td= income.description
             %td= income.price
+        %tr
+          %td
+          %td Totale
+          %td
+            %strong= @balance.outcome.total
