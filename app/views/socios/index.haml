@@ -8,10 +8,14 @@
   \#{link_to "Excel", socios_path(format: "xls")}
 
 %p#notice= notice
-.input-group
+
+%p.input-group
   %span.input-group-addon= t 'search_form.button'
   %input#filter.form-control{:placeholder => t('search_form.placeholder'), :type => "text"}/
-%br/
+
+%p.stats
+  = t('.socios_number')
+  %strong= Socio.count
 .table-responsive
   %table.table.table-condensed.table-hover
     %thead
