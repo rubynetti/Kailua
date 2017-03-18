@@ -3,7 +3,7 @@ class Socio < ApplicationRecord
   validates :number, uniqueness: true, allow_blank: true
 
   before_save :nice_format
-  #Formattazione attributi Socio
+
   def nice_format
     titleize_attributes :name, :surname, :birth_place, :residence_place
     self.cf.upcase!
