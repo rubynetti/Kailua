@@ -4,6 +4,8 @@ it:
       association_manager: Gestionale Associazione
       manage: Gestionale
   socios:
+    index:
+      socios_number: Numero di soci
     create:
       notice: Socio salvato.
     update:
