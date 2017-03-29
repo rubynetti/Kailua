@@ -1,10 +1,8 @@
 .row
   .col-sm-12
     .text-center
-      %h2
-        = @balance.name
-
-      %p
+      %h2= @balance.name
+      %p.hidden-print
         %span(style="font-size: 12px")= link_to "Modifica", [:edit, @balance]
       %p Da #{l @balance.start_date} a #{l @balance.end_date}
       - if @balance.description.present?
