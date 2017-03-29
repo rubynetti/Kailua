@@ -25,7 +25,7 @@
             = category.total.format
           - else
             .text-danger= category.total.format
-        %td(style="text-align:right")
+        %td.hidden-print(style="text-align:right")
           = link_to t('actions.edit'), edit_category_path(category)
           = link_to t('actions.delete'), category, :method => :delete, :data => { :confirm => 'Sicuro?' }
     %tr
@@ -47,4 +47,4 @@
 
 %br
 
-= link_to 'Aggiungi Categoria', new_category_path, class: 'btn btn-primary'
+= link_to 'Aggiungi Categoria', new_category_path, class: 'btn btn-primary hidden-print'
