@@ -7,34 +7,49 @@
       %p Da #{l @balance.start_date} a #{l @balance.end_date}
       - if @balance.description.present?
         %p= simple_format @balance.description
-    
+
+  .col-sm-12
+    .panel.panel-default
+      .panel-heading
+        %h3.panel-title Riassunto
+      %table.table
+        %tr
+          %td.col-sm-3 Totale entrate
+          %td.col-sm-9= humanized_money_with_symbol @balance.income.total
+        %tr
+          %td Totale uscite
+          %td= humanized_money_with_symbol @balance.outcome.total
+        %tr
+          %td= label_avanzo_or_disavanzo(@balance.payoff).capitalize
+          %td= humanized_money_with_symbol @balance.payoff
   .col-sm-6
     .panel.panel-default
       .panel-heading
         %h3.panel-title Entrate
-      %table.table
+      %table.table(style="max-height: 500px; overflow: scroll")
         - @balance.income.each do |income|
           %tr
             %td= l income.date_of_transaction
-            %td= income.description
-            %td= income.price
+            %td= link_to income.description, [:edit, income]
+            %td= humanized_money_with_symbol income.price
         %tr
           %td
           %td Totale
           %td
-            %strong= @balance.income.total
+            %strong= humanized_money_with_symbol @balance.income.total
   .col-sm-6
     .panel.panel-default
       .panel-heading
         %h3.panel-title Uscite
       %table.table
-        - @balance.outcome.each do |income|
+        - @balance.outcome.each do |outcome|
           %tr
-            %td= l income.date_of_transaction
-            %td= income.description
-            %td= income.price
+            %td= l outcome.date_of_transaction
+            %td= link_to outcome.description, [:edit, outcome]
+            %td= humanized_money_with_symbol outcome.price
         %tr
           %td
           %td Totale
           %td
-            %strong= @balance.outcome.total
+            %strong= humanized_money_with_symbol @balance.outcome.total
+
